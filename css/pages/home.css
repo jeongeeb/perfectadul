@@ -17,12 +17,6 @@ body[data-page="shop"] .footer-handle {
   bottom: 30px;
 }
 
-/* 메인 첫 화면의 한자 로고만 화면 중앙에 배치합니다. */
-body[data-page="shop"] .brand-title {
-  left: 50%;
-  transform: translateX(-50%);
-}
-
 /* 인물 각도 이미지 다음에 큰 하단 로고가 바로 이어지도록 합니다. */
 body[data-page="shop"] .site-end {
   padding-top: 0;
