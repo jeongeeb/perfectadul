@@ -1,0 +1,239 @@
+/* 모든 페이지 공통: 기본값, 커서, 상단 로고, 메뉴, 하단 계정명 */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background: transparent;
+  color: var(--ink);
+  font-family: "Helvetica", "Arial Narrow", Arial, sans-serif;
+}
+
+/*
+  페이지 스크롤 고정 강도:
+  mandatory = 휠을 놓으면 가장 가까운 구간에 확실하게 맞춤
+  proximity = 구간 가까이에서만 부드럽게 맞춤
+*/
+html {
+  scroll-snap-type: y proximity;
+  scroll-behavior: smooth;
+}
+
+/* 메인은 첫 화면과 마지막 화면만 멈추고, 중간 내용은 자연스럽게 스크롤됩니다. */
+.home-intro,
+.detail-gallery,
+.detail-related-message,
+.detail-related-grid .product-tile,
+.manual-intro,
+.manual-section,
+.archive-intro,
+.archive-project,
+.site-end {
+  scroll-snap-align: start;
+  scroll-snap-stop: normal;
+}
+
+/* 메인 첫 화면과 마지막 bottom_logo 영역은 정확히 멈춥니다. */
+.home-intro,
+.site-end {
+  scroll-snap-stop: always;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* 전체 사이트 마우스 커서: 원본은 assets/Mouse cursor.png 입니다. */
+html,
+body,
+body *,
+button,
+a,
+input,
+select,
+textarea,
+[role="button"] {
+  cursor:
+    url("../assets/mouse-cursor-large.png") 16 10,
+    auto !important;
+}
+
+.site-frame {
+  position: relative;
+  width: 100vw;
+  min-height: calc(2360px * var(--stage-scale, 1));
+  overflow: visible;
+  background: var(--page);
+}
+
+.top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 30;
+  width: 100vw;
+  height: 84px;
+  background: transparent;
+}
+
+.brand-toggle {
+  display: none;
+}
+
+.brand-mark {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.brand-title {
+  position: absolute;
+  top: 20px;
+  left: 30px;
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+
+.brand-home {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brand-logo {
+  display: block;
+  width: 190px;
+  height: auto;
+}
+
+.menu-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 31;
+  display: flex;
+  align-items: center;
+  width: auto;
+  height: 84px;
+  padding: 0 30px;
+  background: transparent;
+}
+
+.side-nav {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.side-nav {
+  display: flex;
+  align-items: center;
+}
+
+.nav-primary-group {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.nav-primary-group {
+  margin: 0;
+}
+
+.side-nav a {
+  display: block;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.side-nav a.active {
+  font-weight: inherit;
+}
+
+.collection-index {
+  display: none;
+}
+
+.menus-hidden .menu-panel {
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+  transform: none;
+}
+
+
+.footer-handle {
+  position: fixed;
+  left: calc(30px * var(--stage-scale, 1));
+  bottom: calc(32px * var(--stage-scale, 1));
+  z-index: 20;
+  margin: 0;
+  font-size: calc(16px * var(--stage-scale, 1));
+  transition: opacity 180ms ease;
+}
+
+.site-end-visible .footer-handle {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* 모든 페이지의 마지막 화면: 로고 크기와 위 간격은 여기서 조정합니다. */
+.site-end {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: calc(215px * var(--stage-scale, 1)) 30px 24px;
+  background: #fff;
+  color: #000;
+}
+
+.site-end-logo {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* 하단 프로젝트 정보: Helvetica Neue / 14px / 행간 18px / 자간 -2% */
+.site-end-copy {
+  margin-top: calc(14px * var(--stage-scale, 1));
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: calc(14px * var(--stage-scale, 1));
+  font-weight: 500;
+  line-height: calc(18px * var(--stage-scale, 1));
+  letter-spacing: -0.02em;
+}
+
+.site-end-copy p {
+  margin: 0;
+}
+
+@media (max-width: 760px) {
+  html {
+    scroll-snap-type: y proximity;
+  }
+
+  .site-end {
+    padding: 90px 16px 18px;
+  }
+
+  .site-end-copy {
+    margin-top: 10px;
+    font-size: 10px;
+    line-height: 13px;
+  }
+}

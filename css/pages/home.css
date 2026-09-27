@@ -1,0 +1,155 @@
+/* 메인페이지 전용 스타일 */
+body[data-page="shop"] .site-frame {
+  min-height: calc(3650px * var(--stage-scale, 1));
+  background: #fff;
+}
+
+.shop-page {
+  position: relative;
+  min-height: calc(3650px * var(--stage-scale, 1));
+  /* 화면 크기와 관계없이 실제 30px 바깥 여백 */
+  padding: 30px;
+  background: #fff;
+}
+
+body[data-page="shop"] .footer-handle {
+  left: 30px;
+  bottom: 30px;
+}
+
+/* 첫 화면: 영문 소개 / 중앙 인물 / 한글 소개 */
+.home-intro {
+  position: relative;
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1fr)
+    calc(250px * var(--stage-scale, 1))
+    minmax(0, 1fr);
+  align-items: start;
+  column-gap: calc(54px * var(--stage-scale, 1));
+  width: 100%;
+  /* 위아래 30px를 제외한 첫 화면 전체 높이 */
+  height: calc(100vh - 60px);
+  padding: calc(210px * var(--stage-scale, 1))
+    calc(30px * var(--stage-scale, 1)) calc(34px * var(--stage-scale, 1));
+  overflow: visible;
+  background: #fff;
+}
+
+.intro-copy {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  color: #555;
+}
+
+/* 영문 폰트: 20px / 행간 28px / 자간 -3% */
+.intro-copy-english {
+  grid-column: 1;
+  font-family: "Arial Narrow", Arial, sans-serif;
+  font-size: calc(20px * var(--stage-scale, 1));
+  line-height: calc(28px * var(--stage-scale, 1));
+  letter-spacing: -0.03em;
+  text-align: left;
+}
+
+/* 한글 폰트: 22px / 행간 26px / 자간 -2% */
+.intro-copy-korean {
+  grid-column: 3;
+  font-family: "Arial Narrow", sans-serif;
+  font-size: calc(18px * var(--stage-scale, 1));
+  line-height: calc(28px * var(--stage-scale, 1));
+  letter-spacing: -0.02em;
+  text-align: right;
+  word-break: keep-all;
+  overflow-wrap: normal;
+}
+
+.intro-copy h2 {
+  margin: 0;
+  font: inherit;
+  font-weight: 400;
+  text-decoration: underline;
+  text-underline-offset: calc(2px * var(--stage-scale, 1));
+}
+
+.intro-copy p {
+  margin: 0;
+}
+
+.intro-copy em {
+  font-style: italic;
+}
+
+.intro-hero-person {
+  /* 크기를 바꿔도 화면의 정확한 가로 중앙을 기준으로 커집니다. */
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  z-index: 1;
+  display: block;
+  width: auto;
+  height: calc(900px * var(--stage-scale, 1));
+  max-height: calc(100vh - 114px);
+  object-fit: contain;
+  transform: translateX(-50%);
+}
+
+/* 두 번째 화면: 합쳐 둔 인물 이미지는 크기만 여기서 조절합니다. */
+.people-section {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  width: 100%;
+  min-height: calc(560px * var(--stage-scale, 1));
+  padding: calc(30px * var(--stage-scale, 1)) 0 0;
+  overflow: visible;
+  background: #fff;
+}
+
+.people-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: center bottom;
+}
+
+.shop-section {
+  position: relative;
+  min-height: calc(2050px * var(--stage-scale, 1));
+  background: #fff;
+}
+
+/* 메인 상품 위치 조정: 전체 위치와 간격은 여기서 바꾸면 됩니다. */
+.shop-grid {
+  position: absolute;
+  top: calc(180px * var(--stage-scale, 1));
+  left: calc(307px * var(--stage-scale, 1));
+  right: calc(307px * var(--stage-scale, 1));
+  display: grid;
+  grid-template-columns: repeat(4, calc(300px * var(--stage-scale, 1)));
+  justify-content: space-between;
+  row-gap: calc(112px * var(--stage-scale, 1));
+  min-height: calc(1800px * var(--stage-scale, 1));
+}
+
+@media (max-width: 760px) {
+  .home-intro {
+    grid-template-columns: 1fr;
+    height: auto;
+    min-height: 100svh;
+    padding-top: calc(135px * var(--stage-scale, 1));
+  }
+
+  .intro-copy,
+  .intro-copy-korean {
+    text-align: left;
+  }
+
+  .intro-hero-person {
+    grid-row: 2;
+    height: 56svh;
+    margin: 24px auto;
+  }
+}

@@ -1,0 +1,27 @@
+@font-face {
+  font-family: "Noto Sans KR";
+  src: url("../assets/fonts/NotoSansKR-Variable.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SM3 Gyeonchul Myeongjo";
+  src: url("../assets/fonts/SM3GyeonchulMyeongjo-Regular.otf") format("opentype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Arial Narrow";
+  src: local("Arial Narrow"), local("Arial");
+}
+
+:root {
+  --red: #000000;
+  --ink: #050505;
+  --muted: #b8b8b8;
+  --page: #ffffff;
+}

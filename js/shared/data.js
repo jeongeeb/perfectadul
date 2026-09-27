@@ -1,0 +1,308 @@
+// 제품, 컬렉션, 아카이브, 메인 소개 데이터
+const products = [
+  {
+    id: "stoic-monocle",
+    number: "#No.01",
+    name: "面安維持 | 면안유지",
+    title: "No.1 평정심 유지용 안구 장치",
+    price: "72,000 KRW",
+    image: "assets/product_mein/product_1.png",
+    summary:
+      "수행 규약 : 평온한 얼굴을 유지하라. 불쾌함은 외부로 노출하지 않는다. 표정은 항상 안정적으로 유지한다. 사회적 공간에서 감정을 직접 보여주는 것은 타인에게 피로를 유발할 수 있다.",
+    body: [
+      "주의사항 : 실제 감정 상태는 고려되지 않는다.",
+      "제품화 방향 : 눈꺼풀, 동공, 시선 떨림을 보정·고정하여 온화한 눈빛을 유지한다.",
+    ],
+  },
+  {
+    id: "gentle-jaw-clamp",
+    number: "#No.02",
+    name: "葛藤封合 | 갈등봉합",
+    title: "No.2 사회적 미소 유지용 입 장치",
+    price: "64,000 KRW",
+    image: "assets/product_mein/product_2.png",
+    summary:
+      "수행 규약 : 충돌을 외부로 확장하지 말 것. 갈등 상황 발생 시 감정을 우선 정리한다. 논리적 승리보다 분위기 안정 유지가 우선된다. 관계 지속 가능성을 해치는 언행은 지양한다.",
+    body: [
+      "주의사항 : 지속적 마찰 발생 시 미성숙한 어른으로 취급받을 수 있다.",
+      "제품화 방향 : 입꼬리를 고정해 미소를 유지하며 정색, 비웃음, 반박 표정을 차단한다.",
+    ],
+  },
+  {
+    id: "patience-ear-cuffs",
+    number: "#No.03",
+    name: "聽應遂行 | 청응수행",
+    title: "No.3 경청반응 유지용 귀 장치",
+    price: "132,000 KRW",
+    image: "assets/product_mein/product_3.png",
+    summary:
+      "수행 규약 : 경청 반응을 수행하라. 타인의 말을 즉시 수정하거나 교정하지 않는다. 즉각적인 공감 반응을 제공한다. 충고보다 수용이 우선된다.",
+    body: [
+      "주의사항 : 공감의 진위 여부는 평가 대상이 아니다.",
+      "제품화 방향 : 불쾌한 말, 반복되는 말, 틀린 말을 들었을 때 발생하는 청각적 피로와 즉각적인 반응을 완화한다.",
+    ],
+  },
+  {
+    id: "silent-helmet",
+    number: "#No.04",
+    name: "時律管理 | 시율관리",
+    title: "No.4 시간 낭비 방지용 교정 신발",
+    price: "196,000 KRW",
+    image: "assets/product_mein/product_4.png",
+    summary:
+      "수행 규약 : 시간을 낭비하지 말 것. 모든 시간은 생산 가능 상태로 유지한다. 휴식 또한 신체 기능 회복 목적 아래 수행한다. 기록되지 않는 노력은 존재하지 않는 노력으로 간주된다.",
+    body: [
+      "주의사항 : 권장 루틴은 운동, 독서, 자기계발, 수면 최적화로 구성된다.",
+      "제품화 방향 : 하루의 비생산 시간을 감지하고 사용자의 생활 리듬을 교정한다.",
+    ],
+  },
+  {
+    id: "balance-struts",
+    number: "#No.05",
+    name: "機能持續 | 기능지속",
+    title: "No.5 기능 지속용 책임감 웨이트",
+    price: "214,000 KRW",
+    image: "assets/product_mein/product_5.png",
+    summary:
+      "수행 규약 : 체력 소진 상태에서도 움직여라. 피로는 기능 중단의 사유가 될 수 없다. 완벽한 어른은 최소 수준 이상의 사회적 수행 능력을 유지해야 한다.",
+    body: [
+      "주의사항 : 피로는 기능 중단의 사유가 될 수 없다.",
+      "제품화 방향 : 신체 움직임에 무게와 저항을 부여하여 충동적인 이탈을 줄이고 지속적인 사회적 수행을 유도한다.",
+    ],
+  },
+  {
+    id: "calm-capsule",
+    number: "#No.06",
+    name: "苦痛隱匿 | 고통은닉",
+    title: "No.6 번아웃 억제용 회복 패치",
+    price: "108,000 KRW",
+    image: "assets/product_mein/product_6.png",
+    summary:
+      "수행 규약 : 붕괴 상태를 외부에 노출하지 말 것. 불안, 무기력, 번아웃은 사적 공간에서 처리한다. 공적 공간에서는 안정적 상태를 유지한다.",
+    body: [
+      "주의사항 : 본 제품은 정서 회복 기능을 제공하지 않는다.",
+      "제품화 방향 : 피로와 감정 붕괴의 외부 표시를 늦추어 정상 생활 중인 어른처럼 보이게 한다.",
+    ],
+  },
+  {
+    id: "clear-collar",
+    number: "#No.07",
+    name: "生存自立 | 생존자립",
+    title: "No.7 자립 점수 스캐너",
+    price: "124,000 KRW",
+    image: "assets/product_mein/product_7.png",
+    summary:
+      "수행 규약 : 자신의 생계를 스스로 유지하라. 주거, 식사, 노동, 세금 처리를 독립적으로 수행한다. 경제적 의존 상태가 장기화될 경우 완벽한 어른 판정이 유예될 수 있다.",
+    body: [
+      "주의사항 : 독립은 권장 사항이 아닌 기본 사항이다.",
+      "제품화 방향 : 생활 데이터를 분석하여 사용자의 자립 점수와 의존 지수를 산출한다.",
+    ],
+  },
+  {
+    id: "comfort-cartridge",
+    number: "#No.08",
+    name: "感情絶緣 | 감정절연",
+    title: "No.8 감정 보관용 부착형 캡슐",
+    price: "54,000 KRW",
+    image: "assets/product_mein/product_8.png",
+    summary:
+      "수행 규약 : 타인에게 과도하게 기대지 말 것. 완벽한 어른은 불안과 슬픔을 스스로 처리한다. 지속적인 감정 의존은 관계 피로를 유발할 수 있다.",
+    body: [
+      "주의사항 : 눈물을 흘리는 행위는 개인 공간에서 수행한다.",
+      "제품화 방향 : 울음, 불안, 무너짐과 같은 감정을 사회적 공간에서 임시 보관한다.",
+    ],
+  },
+  {
+    id: "adult-tool-09",
+    number: "#No.09",
+    name: "家族分離 | 가족분리",
+    title: "No.9 자립 자세 유지용 척추 하네스",
+    price: "248,000 KRW",
+    image: "assets/product_mein/product_9.png",
+    summary:
+      "수행 규약 : 태어난 가족으로부터 독립하라. 완벽한 어른은 본인만의 독립적 생활 단위를 형성해야 한다. 혼인 및 가족 구성은 완전한 사회 통합의 기준으로 간주될 수 있다.",
+    body: [
+      "주의사항 : 미완성 독립 상태 지속 시 ‘성인 모색 단계’로 자동 분류될 수 있다.",
+      "제품화 방향 : 기대고 싶은 몸의 방향을 곧게 세워 타인에게 의존하지 않는 자세를 출력한다.",
+    ],
+  },
+  {
+    id: "adult-tool-10",
+    number: "#No.10",
+    name: "先照顧 | 돌봄선행",
+    title: "No.10 일정 우선순위 시한폭탄 타이머",
+    price: "156,000 KRW",
+    image: "assets/product_mein/product_10.png",
+    summary:
+      "수행 규약 : 하고 싶은 일보다 해야 하는 일을 먼저 하라. 사고 싶은 것보다 갚아야 할 것을 먼저 계산하라. 쉬고 싶은 마음보다 돌봐야 할 사람의 시간을 먼저 배치하라.",
+    body: [
+      "주의사항 : 지속적으로 돌봄 일정을 따르지 않을 경우 타이머 시간이 대폭 감소될 수 있다.",
+      "제품화 방향 : 본인의 욕구보다 돌봄 대상과 사회적 의무의 시간을 우선 배치한다.",
+    ],
+  },
+  {
+    id: "adult-tool-11",
+    number: "#No.11",
+    name: "外形整頓 | 외형정돈",
+    title: "No.11 THE ADULT FIT CORRECTOR™ / 품위 보정용 외형 교정기",
+    price: "236,000 KRW",
+    image: "assets/product_mein/product_11.png",
+    summary:
+      "수행 규약 : 너의 외형은 개인 취향이 아니라 사회적 신호다. 너무 어려 보여도 안 되고, 너무 늙어 보여도 안 된다. 너무 튀어도 안 되고, 너무 방치되어 보여도 안 된다.",
+    body: [
+      "주의사항 : 본 제품은 편안함보다 단정함을 우선한다. 개인의 개성에 따라 제품의 교정 범위를 임의로 변경하지 않는다.",
+      "제품화 방향 : 사용자의 상체와 허리 형태를 사회적으로 무난한 실루엣에 맞춰 교정한다.",
+    ],
+  },
+  {
+    id: "adult-tool-12",
+    number: "#No.12",
+    name: "趣向中立 | 취향중립",
+    title: "No.12 THE NEUTRAL TASTE FILTER™ / 취향 중립화 장치",
+    price: "72,000 KRW",
+    image: "assets/product_mein/product_12.png",
+    summary:
+      "수행 규약 : 취향은 설명 가능해야 한다. 너무 과한 애정, 너무 선명한 분노, 너무 뚜렷한 호불호는 사회적 피로를 만든다.",
+    body: [
+      "주의사항 : 본 제품은 강한 선호와 거부 반응을 자동으로 완화할 수 있다. 지나치게 좋아하거나 싫어하는 태도는 사회적 중립 범위를 벗어날 수 있다.",
+      "제품화 방향 : 취향과 감정의 강도를 낮추어 어디서든 무난한 사람으로 보이게 한다.",
+    ],
+  },
+  {
+    id: "adult-tool-13",
+    number: "#No.13",
+    name: "發話檢閱 | 발화검열",
+    title: "No.13 THE CIVIL TONGUE PLATE™ / 말실수 방지용 혀 보정 장치",
+    price: "180,000 KRW",
+    image: "assets/product_mein/product_13.png",
+    summary:
+      "수행 규약 : 말하기 전에 삼켜라. 네가 옳다는 사실보다 분위기가 깨지지 않는 것이 중요하다. 발화는 가능하지만, 발화 이후의 관계 비용은 본인이 감당해야 한다.",
+    body: [
+      "주의사항 : 제품 착용 중 급작스러운 발화는 제한될 수 있다. 혀의 불편함은 제품의 정상적인 작동 범위에 해당한다.",
+      "제품화 방향 : 혀의 움직임을 제한해 즉흥적 반박과 과도한 솔직함을 지연시킨다.",
+    ],
+  },
+  {
+    id: "adult-tool-14",
+    number: "#No.14",
+    name: "首肯角度 | 수긍각도",
+    title: "No.14 THE AGREEABLE NECK BRACE™ / 수긍 자세 유지용 목 장치",
+    price: "179,000 KRW",
+    image: "assets/product_mein/product_14.png",
+    summary:
+      "수행 규약 : 동의하지 않아도 동의 가능한 얼굴을 유지하라. 고개는 적정 각도로 기울이고, 반박 전 최소 3초간 정지한다.",
+    body: [
+      "주의사항 : 사용자의 실제 동의 여부는 판단하지 않는다. 장시간 착용 시 개인의 자연스러운 목 움직임이 제한될 수 있다.",
+      "제품화 방향 : 목의 각도와 끄덕임 주기를 조절해 수용적인 어른의 자세를 출력한다.",
+    ],
+  },
+  {
+    id: "adult-tool-15",
+    number: "#No.15",
+    name: "謝過待機 | 사과대기",
+    title: "No.15 THE APOLOGY GLOVES™ / 사과 자세 자동 보정 장갑",
+    price: "84,000 KRW",
+    image: "assets/product_mein/product_15.png",
+    summary:
+      "수행 규약 : 갈등이 발생하면 먼저 손을 펴라. 잘못의 크기와 관계없이 수습의 제스처는 성숙의 증거로 기록된다.",
+    body: [
+      "주의사항 : 본 제품은 갈등 상황에서 사용자의 손동작을 자동으로 제한한다. 잘못의 유무와 관계없이 화해 제스처가 우선 출력될 수 있다.",
+      "제품화 방향 : 삿대질과 주먹 쥠을 방지하고 손바닥을 개방된 상태로 유지한다. 항상 먼저 손을 내밀 수 있도록 한다.",
+    ],
+  },
+  {
+    id: "adult-tool-16",
+    number: "#No.16",
+    name: "總綱統合 | 총강통합",
+    title: "No.16 THE PERFECT ADULT ASSEMBLY™ / 완벽한 어른 풀 착장 시스템",
+    price: "1,000,000 KRW",
+    image: "assets/product_mein/product_16.png",
+    summary:
+      "수행 규약 : 모든 강령을 준수하고 각 교정 제품의 착용을 완료하라. 감정, 태도, 책임, 외형, 발화와 행동을 사회적 기준에 맞게 최종 정렬한다.",
+    body: [
+      "하나의 장치는 도움을 준다. 모든 장치는 당신을 완벽한 어른으로 완성한다.",
+      "주의사항 : 착용자는 분노하지 않는다. 반박하지 않는다. 무너지지 않는다. 기대지 않는다. 튀지 않는다.",
+      "제품화 방향 : 눈, 입, 귀, 머리, 목, 척추, 몸통, 손, 무릎, 발목 등 각 신체 부위의 교정 장치를 통합하여 착용자가 어느 자리에서도 흠잡을 데 없는 어른처럼 보이도록 설계한다.",
+      "개별 제품은 도움처럼 보였지만, 모두 모이면 사용자는 완벽한 어른이 아니라 사회적 기준에 의해 조립된 인간이 된다.",
+    ],
+  },
+];
+
+const collectionGroups = {
+  1: {
+    name: "好感之綱",
+    productIds: ["stoic-monocle", "gentle-jaw-clamp", "patience-ear-cuffs"],
+  },
+  2: {
+    name: "誠實之綱",
+    productIds: ["silent-helmet", "balance-struts", "calm-capsule"],
+  },
+  3: {
+    name: "自立之綱",
+    productIds: ["clear-collar", "comfort-cartridge", "adult-tool-09"],
+  },
+  4: {
+    name: "責任之綱",
+    productIds: ["adult-tool-10"],
+  },
+  5: {
+    name: "品位之綱",
+    productIds: ["adult-tool-11", "adult-tool-12"],
+  },
+  6: {
+    name: "沈默之綱",
+    productIds: ["adult-tool-13", "adult-tool-14", "adult-tool-15"],
+  },
+};
+
+const archiveLooks = [
+  ["stoic-monocle", "1.webp"],
+  ["gentle-jaw-clamp", "2.png"],
+  ["gentle-jaw-clamp", "2-1.png"],
+  ["patience-ear-cuffs", "3.png"],
+  ["silent-helmet", "4.png"],
+  ["balance-struts", "5.png"],
+  ["balance-struts", "5-2.png"],
+  ["calm-capsule", "6.png"],
+  ["clear-collar", "7.png"],
+  ["comfort-cartridge", "8.png"],
+  ["adult-tool-09", "9.png"],
+  ["adult-tool-09", "9-1.png"],
+  ["adult-tool-10", "10.png"],
+  ["adult-tool-11", "11.png"],
+  ["adult-tool-12", "12.png"],
+  ["adult-tool-13", "13.png"],
+  ["adult-tool-13", "13-1.png"],
+  ["adult-tool-13", "13-2.png"],
+  ["adult-tool-14", "14.png"],
+  ["adult-tool-15", "15.png"],
+  ["adult-tool-15", "15-1.png"],
+  ["adult-tool-16", "16.png"],
+].map(([productId, file], index) => {
+  const product = products.find((item) => item.id === productId);
+  return {
+    index: index + 1,
+    product,
+    src: `assets/product_model/${file}`,
+  };
+});
+
+// 메인 첫 화면 글/이미지 수정은 이 영역에서 하면 됩니다.
+const homeIntro = {
+  englishTitle: "2026 Perfect adult Collection [聖人用品]",
+  english: [
+    "You are looking at the perfect adult. A bright, flawless smile. A clean, perfectly tailored outfit. Impeccably polished shoes. Perfect posture and neatly waxed hair. He appears calm, composed, and trustworthy wherever he goes.",
+    "He embodies the image of the “perfect adult” — someone who meets every standard society expects. But don't worry. Becoming the perfect adult is easier than you think. Simply wear the PERFECT ADULT COLLECTION below. From your posture and expression to your speech, emotions, and behavior — each product is designed to shape you, one step at a time, according to the standards society expects of a perfect adult.",
+    "You, too, can become a perfect adult just like him.",
+    "<em>[Become socially optimized.]</em>",
+  ],
+  koreanTitle: "2026 완벽한 어른 컬렉션 [聖人用品]",
+  korean: [
+    "당신은 지금, 완벽한 어른을 보고 있습니다. 환하게 드러나는 가지런한 미소, 흐트러짐 없는 깔끔한 아웃핏, 빈틈없이 빛나는 구두. 바른 자세와 정돈된 왁스 헤어까지.",
+    "그는 언제 어디서나 침착하고, 단정하며, 신뢰받는 사람처럼 보입니다. 사회가 요구하는 모든 조건을 갖춘 ‘완벽한 어른’의 모습입니다. 하지만 걱정하지 마세요. 완벽한 어른이 되는 방법은 생각보다 간단합니다. 아래의 PERFECT ADULT COLLECTION을 착용하세요. 당신의 자세부터 표정, 말투, 감정, 행동까지 — 사회가 원하는 어른의 기준에 맞춰 하나씩 완성해 드립니다.",
+    "당신도 이 남성처럼 완벽한 어른이 될 수 있습니다.",
+    "<em>[사회적으로 완벽해 지세요.]</em>",
+  ],
+  heroImage: "assets/basic person/16_full_front.png",
+  peopleImage: "assets/basic person/all_person.png",
+};

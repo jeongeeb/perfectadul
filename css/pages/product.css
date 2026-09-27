@@ -1,0 +1,613 @@
+/* 제품 상세페이지 전용 스타일 */
+/* 상세 페이지 */
+body[data-page="detail"] .site-frame {
+  min-height: calc(1080px * var(--stage-scale, 1));
+}
+
+.detail-layout {
+  position: relative;
+  min-height: calc(1080px * var(--stage-scale, 1));
+}
+
+.detail-layout.has-related-products {
+  min-height: calc(var(--detail-page-height, 3300px) * var(--stage-scale, 1));
+}
+
+/* 상세페이지 진입 시 잠깐 보이는 큰 제품명/그래픽입니다. */
+.detail-opening {
+  /* [배치 기준] 브라우저 화면을 기준으로 위치를 고정합니다. */
+  position: fixed;
+
+  /* [영역 크기] top/right/bottom/left를 모두 0으로 만들어 화면 전체를 채웁니다. */
+  inset: 0;
+
+  /* [겹침 순서] 숫자가 클수록 다른 요소보다 위에 표시됩니다. */
+  z-index: 100;
+
+  /* [정렬 방식] 내부의 제품명을 Flexbox로 배치합니다. */
+  display: flex;
+
+  /* [세로 위치] flex-start = 위 / center = 중앙 / flex-end = 아래 */
+  /* 화면 정중앙에 배치하려면 이 값을 center로 변경하세요. */
+  align-items: flex-end;
+
+  /* [가로 위치] flex-start = 왼쪽 / center = 중앙 / flex-end = 오른쪽 */
+  /* 화면 정중앙에 배치하려면 이 값도 center로 변경하세요. */
+  justify-content: center;
+
+  /* [넘침 처리] 화면 밖으로 벗어난 큰 글자나 이미지를 숨깁니다. */
+  overflow: hidden;
+
+  /* [안쪽 여백] 위 / 좌우 / 아래 순서입니다. */
+  padding: calc(115px * var(--stage-scale, 1))
+    calc(42px * var(--stage-scale, 1)) calc(28px * var(--stage-scale, 1));
+
+  /* [마우스 동작] 오프닝 글자가 버튼 클릭을 가로막지 않게 합니다. */
+  pointer-events: none;
+
+  /* [투명도] 1은 보임, 0은 완전히 투명한 상태입니다. */
+  opacity: 1;
+
+  /* [사라지는 속도] 투명도 변화가 0.5초 동안 부드럽게 진행됩니다. */
+  transition: opacity 700ms ease;
+}
+
+.detail-opening.is-hiding {
+  /* 오프닝이 끝날 때 투명하게 사라지도록 만드는 상태입니다. */
+  opacity: 0;
+}
+
+.detail-opening-title {
+  /* [위치 기준] 현재 자리에서 위치 조정이 가능하게 합니다. */
+  position: relative;
+
+  /* [겹침 순서] 오프닝 안의 다른 그래픽보다 위에 표시합니다. */
+  z-index: 2;
+
+  /* [정렬 방식] 제품명의 여러 줄을 Flexbox로 배치합니다. */
+  display: flex;
+
+  /* [줄 배치] 제품명의 각 줄을 위에서 아래 방향으로 쌓습니다. */
+  flex-direction: column;
+
+  /* [제목 내부 가로 정렬] 여러 줄의 중심을 서로 맞춥니다. */
+  align-items: center;
+
+  /* [제목 영역 너비] 글자의 실제 너비만큼만 박스를 만듭니다. */
+  /* 100%로 지정하면 축소 전의 큰 글자가 오른쪽으로 넘쳐 보일 수 있습니다. */
+  width: max-content;
+  max-width: none;
+
+  /* [크기 고정] 부모 Flexbox가 제목 박스를 강제로 줄이지 않게 합니다. */
+  flex: 0 0 auto;
+
+  /* [바깥 여백] 브라우저가 p 태그에 기본으로 주는 여백을 제거합니다. */
+  margin: 0;
+
+  /* [글자 색상] 현재 노란색입니다. HEX 색상 코드를 변경하면 됩니다. */
+  color: #ffff00;
+  /* [폰트 종류] 상세페이지 진입 시 잠깐 보이는 큰 제품명에만 적용됩니다. */
+  font-family: "SM3 Gyeonchul Myeongjo", "Noto Sans KR", serif;
+
+  /* [글자 크기] 현재 기준은 550px이며 숫자가 커질수록 글자가 커집니다. */
+  font-size: calc(450px * var(--stage-scale, 1));
+
+  /* [글자 굵기] 400 = 기본 / 500 = 조금 굵게 / 700 = 굵게, px는 붙이지 않습니다. */
+  font-weight: 600;
+
+  /* [행간] 두 줄 사이 간격입니다. 0.8은 좁게, 1은 기본, 1.2는 넓게 표시됩니다. */
+  line-height: 1;
+
+  /* [자간] 글자 사이 간격입니다. 음수는 좁게, 양수는 넓게 만듭니다. */
+  /* 예: -30px = 더 좁게 / -20px = 현재값 / 0 = 기본 간격 */
+  letter-spacing: -10px;
+
+  /* [글자 자체의 가로폭] 글자의 모양 전체를 가로로 압축하거나 늘립니다. */
+  /* 예: scaleX(0.8) = 많이 좁게 / scaleX(0.9) = 조금 좁게 / scaleX(1) = 원래 폭 */
+  transform: scaleX(0.6);
+
+  /* [변형 중심점] 글자의 가로폭을 중앙과 아래쪽을 기준으로 변경합니다. */
+  transform-origin: center bottom;
+
+  /* [텍스트 가로 정렬] 각 줄 안의 글자를 가운데로 정렬합니다. */
+  text-align: center;
+
+  /* [영문 표시] 영문 제품명을 모두 대문자로 바꿉니다. */
+  text-transform: uppercase;
+
+  /* [한글 줄바꿈] 한글 단어가 글자 중간에서 잘리지 않게 합니다. */
+  word-break: keep-all;
+
+  /* [흐림 효과] 0px이면 선명하고 숫자가 커질수록 더 흐려집니다. */
+  filter: blur(calc(0px * var(--stage-scale, 1)));
+}
+
+.detail-opening-title.is-medium {
+  font-size: calc(290px * var(--stage-scale, 1));
+}
+
+.detail-opening-title.is-long {
+  font-size: calc(230px * var(--stage-scale, 1));
+}
+
+.detail-opening-title-line {
+  /* 각 줄도 글자의 실제 너비를 사용해야 제목 전체가 정확히 중앙에 놓입니다. */
+  display: block;
+  width: max-content;
+  max-width: none;
+  white-space: nowrap;
+}
+
+.detail-opening-graphic {
+  position: relative;
+  z-index: 3;
+  display: none;
+  width: calc(1760px * var(--stage-scale, 1));
+  max-width: 100vw;
+  max-height: 100vh;
+  object-fit: contain;
+}
+
+.detail-opening.has-opening-graphic .detail-opening-title {
+  display: none;
+}
+
+.detail-opening.has-opening-graphic .detail-opening-graphic {
+  display: block;
+}
+
+.detail-gallery {
+  position: absolute;
+  left: 50%;
+  top: calc(145px * var(--stage-scale, 1));
+  width: calc(635px * var(--stage-scale, 1));
+  min-height: calc(880px * var(--stage-scale, 1));
+  transform: translateX(-50%);
+}
+
+.detail-gallery-scroll {
+  min-height: calc(7572px * var(--stage-scale, 1));
+}
+
+.detail-scroll-image {
+  display: block;
+  width: calc(635px * var(--stage-scale, 1));
+  height: auto;
+}
+
+/* 상세 이미지가 끝난 뒤 이어지는 전체 제품 목록입니다. */
+.detail-related-products {
+  position: absolute;
+  top: calc(var(--detail-related-top, 1200px) * var(--stage-scale, 1));
+  left: 0;
+  width: 100%;
+  min-height: calc(1950px * var(--stage-scale, 1));
+  padding-bottom: calc(130px * var(--stage-scale, 1));
+}
+
+/* 상세 이미지와 하단 제품 목록 사이에 표시되는 문구입니다. */
+.detail-related-message {
+  /* 문구 아래쪽 제품 목록과의 간격입니다. */
+  margin: 0 0 calc(120px * var(--stage-scale, 1));
+  font-family: "Arial Narrow", Arial, sans-serif;
+  /* 문구 크기는 아래의 28px 숫자로 조절합니다. */
+  font-size: calc(28px * var(--stage-scale, 1));
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0;
+  text-align: center;
+  text-transform: none;
+}
+
+.detail-related-grid {
+  display: grid;
+  grid-template-columns: repeat(4, calc(300px * var(--stage-scale, 1)));
+  justify-content: space-between;
+  width: auto;
+  margin-right: calc(337px * var(--stage-scale, 1));
+  margin-left: calc(337px * var(--stage-scale, 1));
+  row-gap: calc(112px * var(--stage-scale, 1));
+}
+
+.detail-hero {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(635px * var(--stage-scale, 1));
+  height: calc(360px * var(--stage-scale, 1));
+}
+
+.detail-hero img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.detail-closeup {
+  position: absolute;
+  top: calc(500px * var(--stage-scale, 1));
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(635px * var(--stage-scale, 1));
+  height: calc(410px * var(--stage-scale, 1));
+}
+
+.detail-closeup img {
+  width: 95%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.detail-actions {
+  position: fixed;
+  z-index: 15;
+}
+
+.detail-actions.is-released {
+  position: absolute;
+}
+
+.detail-info-toggle {
+  position: fixed;
+  top: 50%;
+  left: calc(300px * var(--stage-scale, 1));
+  z-index: 18;
+  width: calc(200px * var(--stage-scale, 1));
+  height: calc(200px * var(--stage-scale, 1));
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  transform: translateY(-50%);
+  transition: opacity 300ms ease;
+}
+
+.detail-info-stamp {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+  transition:
+    opacity 420ms ease,
+    transform 420ms ease,
+    filter 350ms ease;
+}
+
+.detail-info-stamp-red {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.detail-info-stamp-gray {
+  opacity: 0;
+  transform: scale(0.96);
+}
+
+.detail-info-toggle.is-open .detail-info-stamp-red {
+  opacity: 0;
+  transform: scale(0.96);
+}
+
+.detail-info-toggle.is-open .detail-info-stamp-gray {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* [도장 마우스 효과] 마우스를 올리면 현재 보이는 도장이 흑백으로 흐려집니다. */
+.detail-info-toggle:hover .detail-info-stamp,
+.detail-info-toggle:focus-visible .detail-info-stamp {
+  filter: grayscale(1) brightness(0.82) blur(calc(3px * var(--stage-scale, 1)));
+}
+
+.detail-info-toggle:not(.is-open):hover .detail-info-stamp-red,
+.detail-info-toggle:not(.is-open):focus-visible .detail-info-stamp-red,
+.detail-info-toggle.is-open:hover .detail-info-stamp-gray,
+.detail-info-toggle.is-open:focus-visible .detail-info-stamp-gray {
+  opacity: 0.52;
+  transform: scale(0.97);
+}
+
+/* 상세페이지 설정 */
+.detail-info-overlay {
+  position: fixed;
+  left: calc(30px * var(--stage-scale, 1));
+  right: 0;
+  bottom: calc(28px * var(--stage-scale, 1));
+  z-index: 19;
+  width: auto;
+  max-height: 52vh;
+  overflow-y: auto;
+  color: #000000;
+  font-size: calc(35px * var(--stage-scale, 1));
+  font-weight: 900;
+  line-height: 1.3;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  pointer-events: none;
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(calc(24px * var(--stage-scale, 1)));
+  transition:
+    opacity 420ms ease,
+    transform 420ms ease,
+    visibility 420ms ease;
+}
+
+.detail-info-overlay h2,
+.detail-info-overlay p {
+  margin: 0 0 calc(7px * var(--stage-scale, 1));
+}
+
+.detail-info-overlay h2 {
+  font-size: calc(58px * var(--stage-scale, 1));
+  line-height: 0.9;
+}
+
+.detail-info-overlay.is-open {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: none;
+}
+
+.detail-info-toggle.is-released,
+.detail-info-overlay.is-released {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.detail-actions {
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: calc(642px * var(--stage-scale, 1));
+}
+/* 상세페이지 제품이름 */
+.detail-purchase-meta {
+  width: calc(489px * var(--stage-scale, 1));
+  margin: 0 0 calc(24px * var(--stage-scale, 1));
+  color: #000;
+  font-size: calc(24px * var(--stage-scale, 1));
+  line-height: 1.3;
+  text-align: left;
+}
+
+.detail-purchase-meta p {
+  margin: 0;
+}
+
+.detail-purchase-number,
+.detail-purchase-doctrine,
+.detail-purchase-name {
+  font-weight: 900;
+}
+
+.detail-purchase-price {
+  margin-top: calc(8px * var(--stage-scale, 1)) !important;
+  font-weight: 400;
+}
+
+.detail-actions a,
+.detail-actions button {
+  display: block;
+  width: calc(489px * var(--stage-scale, 1));
+  height: calc(31px * var(--stage-scale, 1));
+  margin-bottom: calc(6px * var(--stage-scale, 1));
+  border: 1px solid #000;
+  border-radius: 0;
+  background: #fff;
+  color: #000;
+  font: inherit;
+  font-size: calc(13px * var(--stage-scale, 1));
+  line-height: calc(29px * var(--stage-scale, 1));
+  text-align: center;
+  cursor: pointer;
+}
+
+.detail-actions .buy {
+  background: var(--red);
+  color: #fff;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+.purchase-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+  opacity: 0;
+  transition:
+    opacity 180ms ease,
+    visibility 180ms ease;
+}
+
+.purchase-modal.is-open {
+  visibility: visible;
+  opacity: 1;
+}
+
+.purchase-backdrop {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: rgba(235, 237, 239, 0.86);
+  backdrop-filter: blur(5px) grayscale(0.65);
+  cursor: default;
+}
+
+.purchase-dialog {
+  position: relative;
+  z-index: 1;
+  width: min(calc(650px * var(--stage-scale, 1)), calc(100vw - 40px));
+  border: 1px solid var(--ink);
+  background: #fff;
+  color: var(--ink);
+  outline: none;
+}
+/* 장바구니페이지 */
+.purchase-dialog-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  min-height: calc(76px * var(--stage-scale, 1));
+  padding: calc(15px * var(--stage-scale, 1));
+  background: #ffffff;
+  color: #000000;
+}
+
+.purchase-dialog-header p {
+  margin: 0;
+  font-size: calc(15px * var(--stage-scale, 1));
+  line-height: 1.15;
+}
+
+.purchase-dialog-header button {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.purchase-dialog-body {
+  display: grid;
+  grid-template-columns: calc(220px * var(--stage-scale, 1)) minmax(0, 1fr);
+  gap: calc(18px * var(--stage-scale, 1));
+  padding: calc(16px * var(--stage-scale, 1));
+}
+
+.purchase-product-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(260px * var(--stage-scale, 1));
+  padding: calc(14px * var(--stage-scale, 1));
+  background: #eef0f2;
+}
+
+.purchase-product-image img {
+  display: block;
+  max-width: 100%;
+  max-height: calc(230px * var(--stage-scale, 1));
+  object-fit: contain;
+}
+
+.purchase-product-info > p {
+  margin: 0 0 calc(10px * var(--stage-scale, 1));
+  font-size: calc(13px * var(--stage-scale, 1));
+  line-height: 1.25;
+}
+
+.purchase-product-info h2 {
+  margin: 0 0 calc(11px * var(--stage-scale, 1));
+  font-size: calc(23px * var(--stage-scale, 1));
+  font-weight: 900;
+  line-height: 1;
+}
+
+.purchase-product-info dl {
+  margin: calc(20px * var(--stage-scale, 1)) 0;
+  border-top: 1px solid var(--ink);
+}
+
+.purchase-product-info dl > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: calc(38px * var(--stage-scale, 1));
+  border-bottom: 1px solid var(--ink);
+  font-size: calc(13px * var(--stage-scale, 1));
+}
+
+.purchase-product-info dt,
+.purchase-product-info dd {
+  margin: 0;
+}
+
+.purchase-quantity-row dd {
+  display: flex;
+  align-items: center;
+  gap: calc(10px * var(--stage-scale, 1));
+}
+
+.purchase-quantity-row button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(24px * var(--stage-scale, 1));
+  height: calc(24px * var(--stage-scale, 1));
+  padding: 0;
+  border: 1px solid var(--ink);
+  border-radius: 0;
+  background: #fff;
+  color: var(--ink);
+  font: inherit;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.purchase-message {
+  color: #5e5e5e;
+}
+
+.purchase-status {
+  display: none;
+  margin: 0 calc(16px * var(--stage-scale, 1))
+    calc(16px * var(--stage-scale, 1));
+  padding: calc(12px * var(--stage-scale, 1));
+  background: #ff0000;
+  color: #fff;
+  font-size: calc(13px * var(--stage-scale, 1));
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.purchase-status.is-visible {
+  display: block;
+}
+
+.purchase-dialog-footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-top: 1px solid var(--ink);
+}
+
+.purchase-dialog-footer button {
+  min-height: calc(45px * var(--stage-scale, 1));
+  padding: calc(10px * var(--stage-scale, 1));
+  border: 0;
+  border-radius: 0;
+  background: #fff;
+  color: var(--ink);
+  font: inherit;
+  font-size: calc(13px * var(--stage-scale, 1));
+  cursor: pointer;
+}
+
+.purchase-dialog-footer button + button {
+  border-left: 1px solid var(--ink);
+  background: #111;
+  color: #fff;
+}
