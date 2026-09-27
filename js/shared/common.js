@@ -30,6 +30,11 @@ function productTitleWithoutNumber(title = "") {
   return title.replace(/^#?No\.\s*\d+\s*/i, "").trim();
 }
 
+// 메인 카드와 상세페이지에 표시하는 실제 제품명은 한글 title만 사용합니다.
+function productDisplayName(product) {
+  return productTitleWithoutNumber(product?.title || "");
+}
+
 function formatProductTitle(product, fallbackIndex = 0) {
   return `${formatProductNumber(product, fallbackIndex)} ${productTitleWithoutNumber(product.title)}`;
 }
@@ -112,12 +117,12 @@ function productTilesMarkup(items = products) {
         const productIndex = products.indexOf(product);
         return `
     <article class="product-tile" data-slot="${productIndex + 1}">
-      <a class="product-link" href="product.html?id=${product.id}" aria-label="${product.name} detail page">
-        <img class="product-image" src="${versionMainImage(product.image)}" alt="${product.name}">
+      <a class="product-link" href="product.html?id=${product.id}" aria-label="${productDisplayName(product)} 상세페이지">
+        <img class="product-image" src="${versionMainImage(product.image)}" alt="${productDisplayName(product)}">
         <img class="product-hover-image" alt="" aria-hidden="true" data-hover-candidates="${hoverImageCandidates(productIndex).map(versionMainImage).join("|")}">
       </a>
       <p class="product-number">${formatProductNumber(product, productIndex)}</p>
-      <h2 class="product-name">${product.name}</h2>
+      <h2 class="product-name">${productDisplayName(product)}</h2>
       <p class="product-price">${product.price}</p>
     </article>`;
       },

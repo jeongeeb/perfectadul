@@ -144,7 +144,7 @@ const products = [
     id: "adult-tool-11",
     number: "#No.11",
     name: "外形整頓 | 외형정돈",
-    title: "No.11 THE ADULT FIT CORRECTOR™ / 품위 보정용 외형 교정기",
+    title: "No.11 품위 보정용 외형 교정기",
     price: "236,000 KRW",
     image: "assets/product_mein/product_11.png",
     summary:
@@ -158,7 +158,7 @@ const products = [
     id: "adult-tool-12",
     number: "#No.12",
     name: "趣向中立 | 취향중립",
-    title: "No.12 THE NEUTRAL TASTE FILTER™ / 취향 중립화 장치",
+    title: "No.12 취향 중립화 장치",
     price: "72,000 KRW",
     image: "assets/product_mein/product_12.png",
     summary:
@@ -172,7 +172,7 @@ const products = [
     id: "adult-tool-13",
     number: "#No.13",
     name: "發話檢閱 | 발화검열",
-    title: "No.13 THE CIVIL TONGUE PLATE™ / 말실수 방지용 혀 보정 장치",
+    title: "No.13 말실수 방지용 혀 보정 장치",
     price: "180,000 KRW",
     image: "assets/product_mein/product_13.png",
     summary:
@@ -186,7 +186,7 @@ const products = [
     id: "adult-tool-14",
     number: "#No.14",
     name: "首肯角度 | 수긍각도",
-    title: "No.14 THE AGREEABLE NECK BRACE™ / 수긍 자세 유지용 목 장치",
+    title: "No.14 수긍 자세 유지용 목 장치",
     price: "179,000 KRW",
     image: "assets/product_mein/product_14.png",
     summary:
@@ -200,7 +200,7 @@ const products = [
     id: "adult-tool-15",
     number: "#No.15",
     name: "謝過待機 | 사과대기",
-    title: "No.15 THE APOLOGY GLOVES™ / 사과 자세 자동 보정 장갑",
+    title: "No.15 사과 자세 자동 보정 장갑",
     price: "84,000 KRW",
     image: "assets/product_mein/product_15.png",
     summary:
@@ -214,7 +214,7 @@ const products = [
     id: "adult-tool-16",
     number: "#No.16",
     name: "總綱統合 | 총강통합",
-    title: "No.16 THE PERFECT ADULT ASSEMBLY™ / 완벽한 어른 풀 착장 시스템",
+    title: "No.16 완벽한 어른 풀 착장 시스템",
     price: "1,000,000 KRW",
     image: "assets/product_mein/product_16.png",
     summary:
