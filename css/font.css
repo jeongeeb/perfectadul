@@ -7,16 +7,6 @@
 }
 
 @font-face {
-  font-family: "J Kkwakchan Gothic C";
-  src:
-    local("J꽉찬고딕C"),
-    local("J Kkwakchan Gothic C");
-  font-style: normal;
-  font-weight: 100 900;
-  font-display: swap;
-}
-
-@font-face {
   font-family: "SM3 Gyeonchul Myeongjo";
   src: url("../assets/fonts/SM3GyeonchulMyeongjo-Regular.otf") format("opentype");
   font-style: normal;
@@ -34,5 +24,5 @@
   --ink: #050505;
   --muted: #b8b8b8;
   --page: #ffffff;
-  --kr-font: "J Kkwakchan Gothic C", "J꽉찬고딕C", "Noto Sans KR", "Helvetica Neue", Arial, sans-serif;
+  --kr-font: "SM3 Gyeonchul Myeongjo", "Noto Sans KR", serif;
 }
