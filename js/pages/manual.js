@@ -1,9 +1,34 @@
-// 메뉴얼 페이지 출력
+/*
+  [메뉴얼 내용 수정]
+  - 첫 화면 소개문: manual-intro 안의 세 manual-intro-column
+  - 한국어 지침서: lang="ko"인 manual-section
+  - 영어 지침서: lang="en"인 manual-section
+  - 화면 배치와 폰트: css/pages/manual-reference.css
+  HTML 태그는 유지하고 <p>, <h3>, <h4>, <li> 안의 문장만 바꾸면 안전합니다.
+*/
 function renderManual() {
   document.body.classList.add("menus-hidden");
 
   renderShell(`
     <main class="manual-page">
+      <aside class="manual-side-index" aria-label="Manual contents">
+        <nav class="manual-side-nav">
+          <a href="#manual-intro-title">Introduction</a>
+          <a href="#manual-kr-1">Standard code</a>
+          <a href="#manual-kr-2">Core proposition</a>
+          <a href="#manual-kr-3">Adult standards</a>
+          <a href="#manual-kr-4">Manual origin</a>
+          <a href="#project-footer">Project info</a>
+        </nav>
+      </aside>
+      <section class="manual-hero" aria-label="Manual visual overview">
+        <figure class="manual-hero-panel manual-hero-panel-wide">
+          <img src="${versionMainImage("assets/basic person/all_person.png")}" alt="Perfect adult model views">
+        </figure>
+        <figure class="manual-hero-panel">
+          <img src="${versionMainImage("assets/Product Detail Page/1.jpg")}" alt="Product manual detail page">
+        </figure>
+      </section>
       <section class="manual-intro" aria-labelledby="manual-intro-title">
         <h2 id="manual-intro-title">완벽한 어른을 사회적 기준에서 설계하다</h2>
         <div class="manual-intro-grid">
@@ -22,7 +47,7 @@ function renderManual() {
           </div>
         </div>
         <div class="manual-intro-brand">
-          <img src="assets/bottom_logo.png" alt="聖人用品 指針">
+          <img src="assets/graphics/bottom_logo.png" alt="聖人用品 指針">
           <div class="manual-intro-brand-copy">
             <p>聖人用品: 완벽한어른</p>
             <p>The more you wear our products, the closer you become to the adult society expects. Wearing every piece, you look like a perfect adult, but you gradually lose yourself. [Become socially optimized]</p>
@@ -31,7 +56,7 @@ function renderManual() {
         </div>
       </section>
 
-      <section class="manual-section" lang="ko">
+      <section class="manual-section" id="manual-kr" lang="ko">
         <p class="manual-language">KOREAN</p>
         <article class="manual-copy manual-document">
           <h3>완벽한 어른 수행을 위한 표준 행동 지침서</h3>
@@ -98,7 +123,7 @@ function renderManual() {
         </article>
       </section>
 
-      <section class="manual-section" lang="en">
+      <section class="manual-section" id="manual-en" lang="en">
         <p class="manual-language">ENGLISH</p>
         <article class="manual-copy manual-document">
           <h3>A STANDARD CODE OF CONDUCT FOR PERFORMING THE PERFECT ADULT</h3>
@@ -167,13 +192,14 @@ function renderManual() {
     </main>`);
 
   buildManualEditorialGrid();
+  bindManualSideNav();
 }
 
 // h3를 장 제목으로 사용해 왼쪽 제목 / 오른쪽 본문 구조를 자동 생성합니다.
 function buildManualEditorialGrid() {
   document.querySelectorAll(".manual-section").forEach((section) => {
     const article = section.querySelector(".manual-document");
-    const languageLabel = section.lang === "en" ? "EN" : "KR";
+    const sectionPrefix = section.lang === "en" ? "manual-en" : "manual-kr";
     const chapters = document.createDocumentFragment();
     let chapterNumber = 0;
     let chapterBody = null;
@@ -189,17 +215,14 @@ function buildManualEditorialGrid() {
 
         const chapter = document.createElement("section");
         chapter.className = "manual-chapter manual-editorial-row";
+        chapter.id = `${sectionPrefix}-${chapterNumber}`;
 
         const rail = document.createElement("header");
         rail.className = "manual-rail";
 
-        const kicker = document.createElement("p");
-        kicker.className = "manual-kicker";
-        kicker.textContent = `${languageLabel} / ${String(chapterNumber).padStart(2, "0")}`;
-
         const title = document.createElement("h2");
         title.innerHTML = element.innerHTML;
-        rail.append(kicker, title);
+        rail.append(title);
 
         chapterBody = document.createElement("div");
         chapterBody.className = "manual-chapter-copy";
@@ -234,6 +257,53 @@ function buildManualEditorialGrid() {
       if (count === 1) body.firstElementChild?.classList.add("manual-subsection--flow");
     });
   });
+}
+
+function bindManualSideNav() {
+  const links = [...document.querySelectorAll(".manual-side-nav a")];
+  if (!links.length) return;
+
+  const targets = links
+    .map((link) => {
+      const id = link.getAttribute("href")?.slice(1);
+      const target = id ? document.getElementById(id) : null;
+      return target ? { link, target } : null;
+    })
+    .filter(Boolean);
+
+  const setActive = (activeLink) => {
+    links.forEach((link) => {
+      link.classList.toggle("is-active", link === activeLink);
+    });
+  };
+
+  links.forEach((link) => {
+    link.addEventListener("click", () => setActive(link));
+  });
+
+  if (!("IntersectionObserver" in window)) {
+    setActive(links[0]);
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      const visibleEntry = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+      if (!visibleEntry) return;
+
+      const matched = targets.find((item) => item.target === visibleEntry.target);
+      if (matched) setActive(matched.link);
+    },
+    {
+      rootMargin: "-34% 0px -58% 0px",
+      threshold: [0, 0.2, 0.6, 1],
+    },
+  );
+
+  targets.forEach(({ target }) => observer.observe(target));
+  setActive(links[0]);
 }
 
 

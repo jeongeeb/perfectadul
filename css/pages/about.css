@@ -1,0 +1,225 @@
+body[data-page="about"],
+body[data-page="about"] .site-frame {
+  background: #dedede;
+}
+
+body[data-page="about"] .top-bar {
+  background: transparent;
+}
+
+body[data-page="about"] .site-frame {
+  min-height: 100%;
+}
+
+.about-page {
+  position: relative;
+  min-height: 100vh;
+  padding-top: calc(101px * var(--stage-scale, 1));
+  background: #dedede;
+}
+
+.about-intro {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(979px * var(--stage-scale, 1));
+  text-align: center;
+}
+
+.about-intro-lockup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: calc(14px * var(--stage-scale, 1));
+  color: #111;
+  font-size: calc(14px * var(--stage-scale, 1));
+  font-weight: 600;
+  line-height: 1.05;
+}
+
+.about-intro-lockup p {
+  margin: 0;
+}
+
+.about-intro-lockup img {
+  display: block;
+  width: calc(145px * var(--stage-scale, 1));
+  height: auto;
+  object-fit: contain;
+}
+
+.about-project-list {
+  width: 100%;
+}
+
+.about-project {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  min-height: calc(1080px * var(--stage-scale, 1));
+  padding: calc(105px * var(--stage-scale, 1))
+    calc(18px * var(--stage-scale, 1)) calc(34px * var(--stage-scale, 1));
+}
+
+.about-project-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: min(calc(1260px * var(--stage-scale, 1)), calc(100vw - 160px));
+  height: calc(750px * var(--stage-scale, 1));
+  margin: 0 auto calc(28px * var(--stage-scale, 1));
+}
+
+.about-project-main-image {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  opacity: 1;
+  transition: opacity 180ms ease;
+}
+
+.about-project-main-image.is-switching {
+  opacity: 0.15;
+}
+
+.about-project-footer {
+  display: grid;
+  grid-template-columns: calc(420px * var(--stage-scale, 1)) minmax(0, 1fr);
+  align-items: end;
+  gap: calc(45px * var(--stage-scale, 1));
+}
+
+.about-project-copy {
+  width: calc(365px * var(--stage-scale, 1));
+  color: #111;
+  font-size: calc(12px * var(--stage-scale, 1));
+  line-height: 1.12;
+}
+
+.about-project-copy p,
+.about-project-copy h2 {
+  margin: 0;
+}
+
+.about-project-index {
+  margin-bottom: calc(12px * var(--stage-scale, 1)) !important;
+  font-size: calc(10px * var(--stage-scale, 1));
+}
+
+.about-project-copy h2 {
+  font-size: calc(16px * var(--stage-scale, 1));
+  font-weight: 700;
+  line-height: 1;
+}
+
+.about-project-meta {
+  margin-top: calc(4px * var(--stage-scale, 1)) !important;
+}
+
+.about-project-summary {
+  margin-top: calc(18px * var(--stage-scale, 1)) !important;
+}
+
+.about-thumbnails {
+  display: flex;
+  align-items: flex-end;
+  gap: calc(16px * var(--stage-scale, 1));
+  min-width: 0;
+  height: calc(135px * var(--stage-scale, 1));
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+}
+
+.about-thumbnails::-webkit-scrollbar {
+  display: none;
+}
+
+.about-thumbnail {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: calc(150px * var(--stage-scale, 1));
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  opacity: 0.38;
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.about-thumbnail:hover,
+.about-thumbnail.is-active {
+  opacity: 1;
+}
+
+.about-thumbnail.is-active {
+  transform: translateY(calc(-5px * var(--stage-scale, 1)));
+}
+
+.about-thumbnail img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .about-intro {
+    min-height: calc(100svh - 22px);
+  }
+
+  .about-intro-lockup {
+    gap: 10px;
+    font-size: 11px;
+  }
+
+  .about-intro-lockup img {
+    width: 110px;
+  }
+
+  .about-project {
+    min-height: 100svh;
+    padding: 64px 14px 22px;
+  }
+
+  .about-project-main {
+    width: 100%;
+    height: 50svh;
+    margin-bottom: 22px;
+  }
+
+  .about-project-main-image {
+    max-height: 50svh;
+  }
+
+  .about-project-footer {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .about-project-copy {
+    width: min(300px, 88vw);
+    font-size: 11px;
+  }
+
+  .about-project-index {
+    font-size: 9px;
+  }
+
+  .about-project-copy h2 {
+    font-size: 15px;
+  }
+
+  .about-thumbnails {
+    width: calc(100vw - 28px);
+    height: 105px;
+    gap: 10px;
+  }
+
+  .about-thumbnail {
+    width: 112px;
+  }
+}

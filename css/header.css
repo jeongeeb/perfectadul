@@ -35,7 +35,7 @@ select,
 textarea,
 [role="button"] {
   cursor:
-    url("../assets/mouse-cursor-large.png") 16 10,
+    url("../assets/graphics/mouse-cursor-large.png") 16 10,
     auto !important;
 }
 

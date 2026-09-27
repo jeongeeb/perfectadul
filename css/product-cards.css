@@ -1,4 +1,15 @@
-/* 메인과 상세페이지 하단에서 함께 사용하는 제품 카드 스타일 */
+/*
+  [제품 카드 수정 지도]
+  - 카드 하나의 기본 크기: .product-tile
+  - 제품별 PNG 크기: 각 .product-tile[data-slot="번호"]의 --image-width
+  - 제품별 착용컷 크기: --model-image-width
+  - 이미지 영역 높이: .product-link
+  - 기본 제품 이미지: .product-image
+  - 마우스 오버 착용 이미지: .product-hover-image
+  - 번호 글자: .product-number
+  - 한글 제품명: .product-name
+  - 가격: .product-price
+*/
 .product-tile {
   position: relative;
   --image-max-height: 270px;
@@ -107,6 +118,7 @@
 }
 
 .product-link {
+  /* 이미지가 들어가는 고정 높이 영역입니다. */
   position: relative;
   display: flex;
   align-items: center;
@@ -116,6 +128,7 @@
 }
 
 .product-image {
+  /* 기본 제품 PNG의 실제 표시 크기와 위치입니다. */
   display: block;
   width: calc(var(--image-width, 250px) * var(--stage-scale, 1));
   height: auto;
@@ -130,6 +143,7 @@
 }
 
 .product-hover-image {
+  /* 마우스를 올렸을 때 나타나는 착용컷의 크기와 위치입니다. */
   position: absolute;
   top: 50%;
   left: 50%;

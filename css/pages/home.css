@@ -1,15 +1,29 @@
-/* 메인페이지 전용 스타일 */
+/*
+  [메인페이지 수정 지도]
+  - 페이지 전체 30px 여백: .shop-page
+  - 첫 화면 높이/위치/세 칸 구성: .home-intro
+  - 영문 글꼴: .intro-copy-english
+  - 한글 글꼴: .intro-copy-korean
+  - 중앙 인물 크기와 위치: .intro-hero-pair
+  - 앞/뒤 인물 호버 전환: .intro-hero-person-front, .intro-hero-person-back
+  - 두 번째 인물 각도 이미지: .people-section, .people-image
+  - 제품 목록 위치와 간격: .shop-grid
+*/
 body[data-page="shop"] .site-frame {
   min-height: calc(3650px * var(--stage-scale, 1));
-  background: #820202;
+  background: #fff;
 }
 
 .shop-page {
   position: relative;
   min-height: calc(3650px * var(--stage-scale, 1));
   /* 화면 크기와 관계없이 실제 30px 바깥 여백 */
-  padding: 30px;
+  padding: 0 30px 30px;
   background: #fff;
+}
+
+body[data-page="shop"] .brand-title {
+  display: none;
 }
 
 /* 메인페이지 입술 버튼도 실제 30px 바깥 여백선에 맞춥니다. */
@@ -24,59 +38,127 @@ body[data-page="shop"] .footer-handle {
   bottom: 30px;
 }
 
-/* 첫 화면: 영문 소개 / 중앙 인물 / 한글 소개 */
+.home-scroll-logo {
+  position: fixed;
+  top: calc(108px * var(--stage-scale, 1));
+  left: 50%;
+  z-index: 32;
+  display: block;
+  width: calc(100vw - 48px);
+  transform: translateX(-50%);
+  transform-origin: left top;
+  transition:
+    top 220ms ease,
+    left 220ms ease,
+    width 220ms ease,
+    transform 220ms ease;
+}
+
+.home-scroll-logo.is-small {
+  top: 30px;
+  left: 30px;
+  width: 190px;
+  transform: none;
+}
+
+.home-scroll-logo img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* 첫 화면: 큰 로고 아래 정면/뒷면 이미지와 소개문 */
 .home-intro {
   position: relative;
-  display: grid;
-  grid-template-columns:
-    minmax(0, 1fr)
-    calc(250px * var(--stage-scale, 1))
-    minmax(0, 1fr);
-  align-items: start;
-  column-gap: calc(54px * var(--stage-scale, 1));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
   width: 100%;
-  /* 위아래 30px를 제외한 첫 화면 전체 높이 */
-  height: calc(100vh - 60px);
-  /* 바깥 .shop-page에 이미 좌우 30px가 있으므로 좌우 패딩은 0입니다. */
-  padding: calc(210px * var(--stage-scale, 1)) 0
-    calc(34px * var(--stage-scale, 1));
+  min-height: 100vh;
+  padding: calc(520px * var(--stage-scale, 1)) 0
+    calc(56px * var(--stage-scale, 1));
   overflow: visible;
   background: #fff;
+}
+
+.intro-hero-figure {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  align-items: end;
+  justify-content: center;
+  column-gap: calc(70px * var(--stage-scale, 1));
+  width: 100%;
+  margin: 0 0 calc(50px * var(--stage-scale, 1));
+}
+
+.intro-hero-image-pair {
+  position: relative;
+  display: block;
+  height: calc(500px * var(--stage-scale, 1));
+  max-height: 60vh;
+}
+
+.intro-hero-image-pair-front {
+  aspect-ratio: 997 / 1343;
+}
+
+.intro-hero-image-pair-back {
+  aspect-ratio: 984 / 1339;
+}
+
+.intro-hero-image {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
+.intro-hero-image-color {
+  opacity: 0;
+  transition: opacity 180ms ease;
+}
+
+@media (hover: hover) {
+  .intro-hero-image-pair:hover .intro-hero-image-color {
+    opacity: 1;
+  }
 }
 
 .intro-copy {
   position: relative;
   z-index: 2;
-  width: 100%;
-  color: #555;
+  width: min(calc(1760px * var(--stage-scale, 1)), 100%);
+  color: #6d6d6d;
 }
 
 /* 영문 폰트: 20px / 행간 28px / 자간 -3% */
 .intro-copy-english {
-  grid-column: 1;
   font-family: "Arial Narrow", Arial, sans-serif;
   font-size: calc(20px * var(--stage-scale, 1));
-  line-height: calc(30px * var(--stage-scale, 1));
-  letter-spacing: -0.03em;
-  text-align: left;
+  line-height: calc(26px * var(--stage-scale, 1));
+  letter-spacing: -0.04em;
+  text-align: center;
 }
 
 /* 한글 폰트: 22px / 행간 26px / 자간 -2% */
 .intro-copy-korean {
-  grid-column: 3;
-  font-family: "Arial Narrow", sans-serif;
+  margin-top: calc(32px * var(--stage-scale, 1));
+  font-family: "Noto Sans KR", "Helvetica Neue", Arial, sans-serif;
   font-size: calc(18px * var(--stage-scale, 1));
   line-height: calc(28px * var(--stage-scale, 1));
   letter-spacing: -0.02em;
-  text-align: right;
+  text-align: center;
   word-break: keep-all;
   overflow-wrap: normal;
 }
 
 .intro-copy h2 {
-  margin: 0;
+  margin: 0 0 calc(10px * var(--stage-scale, 1));
   font: inherit;
-  font-weight: 200;
+  font-weight: 400;
   text-decoration: underline;
   text-underline-offset: calc(2px * var(--stage-scale, 1));
 }
@@ -89,58 +171,14 @@ body[data-page="shop"] .footer-handle {
   font-style: italic;
 }
 
-.intro-hero-pair {
-  /* 앞·뒤 이미지는 이 영역 안에서 같은 위치에 겹쳐집니다. */
-  position: absolute;
-  left: 50%;
-  bottom: 0;
-  z-index: 1;
-  width: calc(300px * var(--stage-scale, 1));
-  height: calc(900px * var(--stage-scale, 1));
-  max-height: calc(100vh - 114px);
-  transform: translateX(-50%);
-}
-
-.intro-hero-person {
-  position: absolute;
-  left: 50%;
-  bottom: 0;
-  display: block;
-  width: auto;
-  height: 100%;
-  object-fit: contain;
-  transform: translateX(-50%);
-  transition: opacity 180ms ease;
-}
-
-.intro-hero-person-front {
-  z-index: 2;
-  opacity: 1;
-}
-
-.intro-hero-person-back {
-  z-index: 1;
-  opacity: 0;
-}
-
-@media (hover: hover) {
-  .intro-hero-pair:hover .intro-hero-person-front {
-    opacity: 0;
-  }
-
-  .intro-hero-pair:hover .intro-hero-person-back {
-    opacity: 1;
-  }
-}
-
 /* 두 번째 화면: 합쳐 둔 인물 이미지는 크기만 여기서 조절합니다. */
 .people-section {
   display: flex;
   align-items: flex-end;
   justify-content: center;
   width: 100%;
-  min-height: calc(560px * var(--stage-scale, 1));
-  padding: calc(30px * var(--stage-scale, 1)) 0 0;
+  min-height: auto;
+  padding: 0;
   overflow: visible;
   background: #fff;
 }
@@ -173,26 +211,50 @@ body[data-page="shop"] .footer-handle {
 }
 
 @media (max-width: 760px) {
+  .home-scroll-logo {
+    top: 22vw;
+    width: calc(100vw - 20px);
+  }
+
+  .home-scroll-logo.is-small {
+    top: 16px;
+    left: 16px;
+    width: 108px;
+  }
+
   .home-intro {
-    grid-template-columns: 1fr;
-    height: auto;
     min-height: 100svh;
-    padding-top: calc(135px * var(--stage-scale, 1));
+    padding-top: 46vw;
+  }
+
+  .intro-hero-figure {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 18px;
+    margin-bottom: 28px;
+  }
+
+  .intro-hero-image-pair {
+    width: 100%;
+    height: auto;
+    max-height: none;
+  }
+
+  .intro-copy {
+    width: 100%;
   }
 
   .intro-copy,
   .intro-copy-korean {
-    text-align: left;
+    text-align: center;
   }
 
-  .intro-hero-pair {
-    position: relative;
-    left: auto;
-    bottom: auto;
-    grid-row: 2;
-    width: 100%;
-    height: 56svh;
-    margin: 24px auto;
-    transform: none;
+  .intro-copy-english {
+    font-size: 15px;
+    line-height: 20px;
+  }
+
+  .intro-copy-korean {
+    font-size: 15px;
+    line-height: 22px;
   }
 }

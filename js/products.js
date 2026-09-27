@@ -297,7 +297,7 @@ const homeIntro = {
     "당신도 이 남성처럼 완벽한 어른이 될 수 있습니다.",
     "<em>[Become socially optimized.]</em>",
   ],
-  stampImage: "assets/stamp_gray.png",
+  stampImage: "assets/graphics/stamp_gray.png",
   figures: [
     {
       className: "intro-figure intro-figure-16-front",
@@ -721,7 +721,7 @@ function headerMarkup() {
       </button>
       <h1 class="brand-title">
         <a class="brand-home" href="index.html" aria-label="Go to main page">
-          <img class="brand-logo" src="assets/top-logo.png" alt="聖人用品指針">
+          <img class="brand-logo" src="assets/graphics/top-logo.png" alt="聖人用品指針">
         </a>
       </h1>
     </header>`;
@@ -1069,8 +1069,8 @@ function renderDetail() {
       </section>
       ${fallbackGallery}
       <button class="detail-info-toggle" type="button" aria-label="제품 상세 설명 보기" aria-controls="detail-info-overlay" aria-expanded="false">
-        <img class="detail-info-stamp detail-info-stamp-red" src="assets/stamp_red.png" alt="">
-        <img class="detail-info-stamp detail-info-stamp-gray" src="assets/stamp_gray.png" alt="">
+        <img class="detail-info-stamp detail-info-stamp-red" src="assets/graphics/stamp_red.png" alt="">
+        <img class="detail-info-stamp detail-info-stamp-gray" src="assets/graphics/stamp_gray.png" alt="">
       </button>
       <section class="detail-info-overlay" id="detail-info-overlay" aria-hidden="true">
         <h2>${product.name}</h2>

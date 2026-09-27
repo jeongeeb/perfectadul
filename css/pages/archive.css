@@ -1,234 +1,194 @@
-/* 아카이브 페이지 전용 스타일 */
-/* Archive: 큰 착용 이미지와 하단 상세 썸네일로 구성된 프로젝트 뷰입니다. */
+/*
+  [아카이브 페이지 수정 지도]
+  - 왼쪽 필터/메뉴: .archive-filter
+  - 오른쪽 전체 영역: .archive-index
+  - 상단 설명: .archive-index-header
+  - 2열 프로젝트 그리드: .archive-grid
+  - 개별 이미지 박스: .archive-card-image-wrap
+  - 개별 텍스트 메타: .archive-card-copy, .archive-card-meta
+*/
 body[data-page="archive"],
 body[data-page="archive"] .site-frame {
-  background: #dedede;
-}
-
-body[data-page="archive"] .top-bar {
-  background: transparent;
+  background: #fff;
 }
 
 body[data-page="archive"] .site-frame {
   min-height: 100%;
 }
 
-.archive-page {
-  position: relative;
-  min-height: 100vh;
-  padding-top: calc(101px * var(--stage-scale, 1));
-  background: #dedede;
-}
-
-/* 아카이브에 처음 들어왔을 때 중앙에 보이는 입술 인트로입니다. */
-.archive-intro {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: calc(979px * var(--stage-scale, 1));
-  text-align: center;
-}
-
-.archive-intro-lockup {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: calc(14px * var(--stage-scale, 1));
-  color: #111;
-  font-size: calc(13px * var(--stage-scale, 1));
-  font-weight: 600;
-  line-height: 1.05;
-}
-
-.archive-intro-lockup p {
-  margin: 0;
-}
-
-.archive-intro-lockup img {
-  display: block;
-  width: calc(145px * var(--stage-scale, 1));
-  height: auto;
-  object-fit: contain;
-}
-
-.archive-project-list {
-  width: 100%;
-}
-
-/* 제품 하나가 화면 한 장처럼 보이도록 큰 이미지와 하단 정보를 배치합니다. */
-.archive-project {
-  display: grid;
-  grid-template-rows: minmax(0, 1fr) auto;
-  min-height: calc(1080px * var(--stage-scale, 1));
-  padding: calc(105px * var(--stage-scale, 1))
-    calc(18px * var(--stage-scale, 1)) calc(34px * var(--stage-scale, 1));
-}
-
-/* 현재 선택된 착용컷 또는 제품 이미지가 크게 보이는 영역입니다. */
-.archive-project-main {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: min(
-    calc(1260px * var(--stage-scale, 1)),
-    calc(100vw - 160px)
-  );
-  height: calc(750px * var(--stage-scale, 1));
-  margin: 0 auto calc(28px * var(--stage-scale, 1));
-}
-
-.archive-project-main-image {
-  display: block;
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-  opacity: 1;
-  transition: opacity 180ms ease;
-}
-
-.archive-project-main-image.is-switching {
-  opacity: 0.15;
-}
-
-/* 하단 왼쪽은 설명, 오른쪽은 클릭 가능한 상세 이미지 목록입니다. */
-.archive-project-footer {
-  display: grid;
-  grid-template-columns: calc(420px * var(--stage-scale, 1)) minmax(0, 1fr);
-  align-items: end;
-  gap: calc(45px * var(--stage-scale, 1));
-}
-
-.archive-project-copy {
-  width: calc(365px * var(--stage-scale, 1));
-  color: #111;
-  font-size: calc(12px * var(--stage-scale, 1));
-  line-height: 1.12;
-}
-
-.archive-project-copy p,
-.archive-project-copy h2 {
-  margin: 0;
-}
-
-.archive-project-index {
-  margin-bottom: calc(12px * var(--stage-scale, 1)) !important;
-  font-size: calc(10px * var(--stage-scale, 1));
-}
-
-.archive-project-copy h2 {
-  font-size: calc(16px * var(--stage-scale, 1));
-  font-weight: 700;
-  line-height: 1;
-}
-
-.archive-project-meta {
-  margin-top: calc(4px * var(--stage-scale, 1)) !important;
-}
-
-.archive-project-summary {
-  margin-top: calc(18px * var(--stage-scale, 1)) !important;
-}
-
-.archive-thumbnails {
-  display: flex;
-  align-items: flex-end;
-  gap: calc(16px * var(--stage-scale, 1));
-  min-width: 0;
-  height: calc(135px * var(--stage-scale, 1));
-  overflow-x: auto;
-  overflow-y: hidden;
-  scrollbar-width: none;
-}
-
-.archive-thumbnails::-webkit-scrollbar {
+body[data-page="archive"] .footer-handle {
   display: none;
 }
 
-.archive-thumbnail {
+.archive-page {
+  display: grid;
+  grid-template-columns: calc(252px * var(--stage-scale, 1)) minmax(0, 1fr);
+  column-gap: calc(64px * var(--stage-scale, 1));
+  min-height: 100vh;
+  padding: calc(128px * var(--stage-scale, 1)) calc(32px * var(--stage-scale, 1))
+    calc(110px * var(--stage-scale, 1));
+  background: #fff;
+  color: #262626;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.archive-filter {
+  position: sticky;
+  top: calc(128px * var(--stage-scale, 1));
+  align-self: start;
+  min-width: 0;
+  font-size: calc(15px * var(--stage-scale, 1));
+  font-weight: 500;
+  line-height: 1.04;
+  letter-spacing: -0.03em;
+}
+
+.archive-section-nav,
+.archive-filter-group {
+  display: grid;
+}
+
+.archive-section-nav {
+  gap: calc(2px * var(--stage-scale, 1));
+  margin-bottom: calc(42px * var(--stage-scale, 1));
+}
+
+.archive-filter-group {
+  gap: calc(2px * var(--stage-scale, 1));
+}
+
+.archive-filter p {
+  margin: 0;
+}
+
+.archive-filter-group p + p {
+  margin-top: calc(20px * var(--stage-scale, 1));
+}
+
+.archive-index {
+  min-width: 0;
+}
+
+.archive-index-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) auto;
+  column-gap: calc(28px * var(--stage-scale, 1));
+  align-items: start;
+  margin-bottom: calc(22px * var(--stage-scale, 1));
+  font-size: calc(15px * var(--stage-scale, 1));
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+}
+
+.archive-index-header h1,
+.archive-index-header p {
+  margin: 0;
+  font: inherit;
+}
+
+.archive-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: calc(18px * var(--stage-scale, 1));
+  row-gap: calc(38px * var(--stage-scale, 1));
+}
+
+.archive-card {
+  min-width: 0;
+}
+
+.archive-card-link {
+  display: grid;
+  gap: calc(10px * var(--stage-scale, 1));
+}
+
+.archive-card-image-wrap {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex: 0 0 auto;
-  width: calc(150px * var(--stage-scale, 1));
-  height: 100%;
-  padding: 0;
-  border: 0;
-  background: transparent;
-  opacity: 0.38;
-  transition: opacity 180ms ease, transform 180ms ease;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  margin: 0;
+  overflow: hidden;
+  background: #f4f4f4;
 }
 
-.archive-thumbnail:hover,
-.archive-thumbnail.is-active {
-  opacity: 1;
-}
-
-.archive-thumbnail.is-active {
-  transform: translateY(calc(-5px * var(--stage-scale, 1)));
-}
-
-.archive-thumbnail img {
+.archive-card-image {
   display: block;
-  max-width: 100%;
-  max-height: 100%;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
-  pointer-events: none;
 }
 
-@media (max-width: 768px) {
-  .archive-intro {
-    min-height: calc(100svh - 22px);
+.archive-card-copy {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+  column-gap: calc(16px * var(--stage-scale, 1));
+  min-height: calc(132px * var(--stage-scale, 1));
+  font-size: calc(14px * var(--stage-scale, 1));
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+}
+
+.archive-card-heading h2,
+.archive-card-heading p,
+.archive-card-meta,
+.archive-card-meta div,
+.archive-card-meta dt,
+.archive-card-meta dd {
+  margin: 0;
+}
+
+.archive-card-heading h2 {
+  font: inherit;
+}
+
+.archive-card-meta {
+  display: grid;
+  gap: calc(2px * var(--stage-scale, 1));
+}
+
+.archive-card-meta div {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  column-gap: calc(4px * var(--stage-scale, 1));
+}
+
+.archive-card-meta dt,
+.archive-card-meta dd {
+  display: inline;
+}
+
+@media (max-width: 900px) {
+  .archive-page {
+    display: block;
+    padding: 92px 16px 78px;
   }
 
-  .archive-intro-lockup {
-    gap: 10px;
-    font-size: 11px;
+  .archive-filter {
+    position: static;
+    margin-bottom: 42px;
+    font-size: 13px;
   }
 
-  .archive-intro-lockup img {
-    width: 110px;
-  }
-
-  .archive-project {
-    min-height: 100svh;
-    padding: 64px 14px 22px;
-  }
-
-  .archive-project-main {
-    width: 100%;
-    height: 50svh;
-    margin-bottom: 22px;
-  }
-
-  .archive-project-main-image {
-    max-height: 50svh;
-  }
-
-  .archive-project-footer {
+  .archive-index-header {
     grid-template-columns: 1fr;
-    gap: 22px;
+    gap: 8px;
+    margin-bottom: 18px;
+    font-size: 13px;
   }
 
-  .archive-project-copy {
-    width: min(300px, 88vw);
-    font-size: 11px;
+  .archive-grid {
+    grid-template-columns: 1fr;
+    row-gap: 42px;
   }
 
-  .archive-project-index {
-    font-size: 9px;
-  }
-
-  .archive-project-copy h2 {
-    font-size: 15px;
-  }
-
-  .archive-thumbnails {
-    width: calc(100vw - 28px);
-    height: 105px;
+  .archive-card-copy {
+    grid-template-columns: 1fr;
     gap: 10px;
-  }
-
-  .archive-thumbnail {
-    width: 112px;
+    min-height: 0;
+    font-size: 13px;
   }
 }

@@ -1,4 +1,11 @@
-// 제품, 컬렉션, 아카이브, 메인 소개 데이터
+/*
+  [사이트 내용 데이터 수정 지도]
+  - products: 1~16번 제품의 번호, 강령명, 한글 제품명, 가격, 이미지, 설명
+  - collectionGroups: 1~6번 강령에 포함되는 제품 연결
+  - archiveLooks: 아카이브 착용컷 이미지 순서
+  - homeIntro: 메인 첫 화면의 영문/한글 소개와 인물 이미지
+  디자인과 간격은 이 파일이 아니라 css 폴더에서 수정합니다.
+*/
 const products = [
   {
     id: "stoic-monocle",
@@ -303,7 +310,9 @@ const homeIntro = {
     "당신도 이 남성처럼 완벽한 어른이 될 수 있습니다.",
     "<em>[사회적으로 완벽해 지세요.]</em>",
   ],
-  heroFrontImage: "assets/basic person/16_full_front.png",
-  heroBackImage: "assets/basic person/16_full_back.png",
+  heroFrontImage: "assets/graphics/16_gray_front.png",
+  heroBackImage: "assets/graphics/16_gray_back.png",
+  heroFrontColorImage: "assets/graphics/16_color_front.png",
+  heroBackColorImage: "assets/graphics/16_color_back.png",
   peopleImage: "assets/basic person/all_person.png",
 };

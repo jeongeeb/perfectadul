@@ -1,4 +1,16 @@
-/* 모든 페이지 공통: 기본값, 커서, 상단 로고, 메뉴, 하단 계정명 */
+/*
+  [모든 페이지 공통 수정 지도]
+  - 전체 기본 글꼴/배경: html, body
+  - 커서 이미지: html, body, body * 선택자
+  - 상단 고정 영역: .top-bar
+  - 우측 입술 버튼: .brand-toggle, .brand-mark
+  - 좌측 한자 로고: .brand-title, .brand-logo
+  - Shop/Manual/Archive/About 메뉴: .menu-panel, .side-nav
+  - 메뉴 항목 사이 간격: .nav-primary-group
+  - 왼쪽 아래 계정명: .footer-handle
+  - 모든 페이지 마지막 큰 로고: .site-end, .site-end-logo
+  - 마지막 설명 글: .site-end-copy
+*/
 * {
   box-sizing: border-box;
 }
@@ -66,7 +78,7 @@ select,
 textarea,
 [role="button"] {
   cursor:
-    url("../assets/mouse-cursor-large.png") 16 10,
+    url("../assets/graphics/mouse-cursor-large.png") 16 10,
     auto !important;
 }
 
@@ -85,10 +97,11 @@ textarea,
   z-index: 30;
   width: 100vw;
   height: 108px;
-  background: transparent;
+  background: #fff;
 }
 
 .brand-toggle {
+  /* 입술 버튼 위치(top/right)와 크기(width/height)입니다. */
   position: absolute;
   top: 30px;
   right: 30px;
@@ -111,6 +124,7 @@ textarea,
 }
 
 .brand-title {
+  /* 왼쪽 한자 로고의 위치입니다. */
   position: absolute;
   top: 30px;
   left: 30px;
@@ -132,6 +146,7 @@ textarea,
 }
 
 .menu-panel {
+  /* 메뉴 전체를 입술 왼쪽에 배치하는 영역입니다. */
   position: fixed;
   top: 30px;
   right: 128px;
@@ -142,13 +157,15 @@ textarea,
   height: 48px;
   padding: 0;
   background: transparent;
-  transition: opacity 160ms ease, visibility 160ms ease;
+  transition:
+    opacity 160ms ease,
+    visibility 160ms ease;
 }
 
 .side-nav {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1;
 }
 
@@ -158,6 +175,7 @@ textarea,
 }
 
 .nav-primary-group {
+  /* Shop, Manual, Archive, About 사이의 간격입니다. */
   display: flex;
   align-items: center;
   gap: 40px;
@@ -187,7 +205,6 @@ textarea,
   visibility: hidden;
 }
 
-
 .footer-handle {
   position: fixed;
   left: calc(30px * var(--stage-scale, 1));
@@ -208,7 +225,7 @@ textarea,
   position: relative;
   z-index: 2;
   width: 100%;
-  padding: calc(215px * var(--stage-scale, 1)) 30px 24px;
+  padding: calc(5px * var(--stage-scale, 1)) 30px 24px;
   background: #fff;
   color: #000;
 }
@@ -221,7 +238,7 @@ textarea,
 
 /* 하단 프로젝트 정보: Helvetica Neue / 14px / 행간 18px / 자간 -2% */
 .site-end-copy {
-  margin-top: calc(14px * var(--stage-scale, 1));
+  margin-top: calc(30px * var(--stage-scale, 1));
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: calc(14px * var(--stage-scale, 1));
   font-weight: 500;

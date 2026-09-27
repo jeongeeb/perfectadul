@@ -1,4 +1,11 @@
-// 제품 상세페이지 출력, 도장 설명, 구매 팝업 기능
+/*
+  [제품 상세페이지 기능 지도]
+  - prepareDetailOpening: 처음 보이는 큰 제품명과 그래픽
+  - bindDetailInfoToggle: 도장 클릭 시 제품 설명 열기/닫기
+  - bindPurchaseModal: BUY NOW/ADD TO CART 팝업과 수량 계산
+  - renderDetail: 상세페이지 전체 HTML 출력
+  제품명/가격/설명은 js/shared/data.js의 products에서 바꿉니다.
+*/
 function prepareDetailOpening() {
   const opening = document.querySelector(".detail-opening");
   if (!opening) return;
@@ -249,8 +256,8 @@ function renderDetail() {
       </section>
       ${fallbackGallery}
       <button class="detail-info-toggle" type="button" aria-label="제품 상세 설명 보기" aria-controls="detail-info-overlay" aria-expanded="false">
-        <img class="detail-info-stamp detail-info-stamp-red" src="assets/stamp_red.png" alt="">
-        <img class="detail-info-stamp detail-info-stamp-gray" src="assets/stamp_gray.png" alt="">
+        <img class="detail-info-stamp detail-info-stamp-red" src="assets/graphics/stamp_red.png" alt="">
+        <img class="detail-info-stamp detail-info-stamp-gray" src="assets/graphics/stamp_gray.png" alt="">
       </button>
       <section class="detail-info-overlay" id="detail-info-overlay" aria-hidden="true">
         <h2>${product.name}</h2>

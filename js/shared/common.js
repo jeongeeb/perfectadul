@@ -1,4 +1,14 @@
-// 모든 페이지에서 함께 사용하는 화면 크기, 이미지, 메뉴 기능
+/*
+  [모든 페이지 공통 기능 지도]
+  - fitToMonitor: 1920px 디자인을 현재 브라우저 너비에 맞춰 축소/확대
+  - formatProductNumber: 제품 번호를 #No.01 형식으로 통일
+  - productTilesMarkup: 메인과 상세 하단의 제품 카드 HTML 생성
+  - prepareProductHoverImages: 제품 위에 마우스를 올렸을 때 착용컷 표시
+  - bindMenuToggle: 우측 입술 버튼으로 메뉴 보이기/숨기기
+  - headerMarkup, navMarkup: 상단 로고와 메뉴 HTML
+  - siteEndMarkup: 모든 페이지 마지막 큰 로고와 프로젝트 정보
+  - renderShell: 각 페이지 내용을 공통 헤더와 푸터 안에 조립
+*/
 const DESIGN_WIDTH = 1920;
 const PRODUCT_HOVER_DELAY = 300;
 const DETAIL_OPENING_VISIBLE_TIME = 1200;
@@ -183,6 +193,7 @@ function navMarkup() {
     document.body.dataset.page === "detail";
   const isManual = document.body.dataset.page === "manual";
   const isArchive = document.body.dataset.page === "archive";
+  const isAbout = document.body.dataset.page === "about";
 
   return `
     <div class="menu-panel" id="site-navigation">
@@ -191,7 +202,7 @@ function navMarkup() {
           <a class="${isShop ? "active" : ""}" href="index.html"${isShop ? ' aria-current="page"' : ""}>Shop</a>
           <a class="${isManual ? "active" : ""}" href="manual.html"${isManual ? ' aria-current="page"' : ""}>Manual</a>
           <a class="${isArchive ? "active" : ""}" href="archive.html"${isArchive ? ' aria-current="page"' : ""}>Archive</a>
-          <a href="index.html#brand-intro">About</a>
+          <a class="${isAbout ? "active" : ""}" href="about.html"${isAbout ? ' aria-current="page"' : ""}>About</a>
         </span>
       </nav>
     </div>`;
@@ -202,7 +213,7 @@ function headerMarkup() {
     <header class="top-bar">
       <h1 class="brand-title">
         <a class="brand-home" href="index.html" aria-label="Go to main page">
-          <img class="brand-logo" src="assets/top-logo.png" alt="聖人用品指針">
+          <img class="brand-logo" src="assets/graphics/top-logo.png" alt="聖人用品指針">
         </a>
       </h1>
       <button class="brand-toggle" type="button" aria-label="Toggle menu" aria-controls="site-navigation" aria-expanded="true">
@@ -214,7 +225,7 @@ function headerMarkup() {
 function siteEndMarkup() {
   return `
     <footer class="site-end" id="project-footer" aria-label="Project information">
-      <img class="site-end-logo" src="assets/bottom_logo.png" alt="聖人用品 指針">
+      <img class="site-end-logo" src="assets/graphics/bottom_logo.png" alt="聖人用品 指針">
       <div class="site-end-copy">
         <p>聖人用品: 완벽한어른</p>
         <p>The more you wear our products, the closer you become to the adult society expects. Wearing every piece, you look like a perfect adult, but you gradually lose yourself. [Become socially optimized]</p>
