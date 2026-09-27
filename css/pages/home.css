@@ -17,6 +17,11 @@ body[data-page="shop"] .footer-handle {
   bottom: 30px;
 }
 
+/* 인물 각도 이미지 다음에 큰 하단 로고가 바로 이어지도록 합니다. */
+body[data-page="shop"] .site-end {
+  padding-top: 0;
+}
+
 /* 첫 화면: 영문 소개 / 중앙 인물 / 한글 소개 */
 .home-intro {
   position: relative;
@@ -95,14 +100,14 @@ body[data-page="shop"] .footer-handle {
   transform: translateX(-50%);
 }
 
-/* 두 번째 화면: 합쳐 둔 인물 이미지는 크기만 여기서 조절합니다. */
+/* 제품 목록 다음, 하단 큰 로고 바로 위의 인물 각도 이미지 */
 .people-section {
   display: flex;
   align-items: flex-end;
   justify-content: center;
   width: 100%;
   min-height: calc(560px * var(--stage-scale, 1));
-  padding: calc(30px * var(--stage-scale, 1)) 0 0;
+  padding: calc(60px * var(--stage-scale, 1)) 0 0;
   overflow: visible;
   background: #fff;
 }

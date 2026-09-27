@@ -30,11 +30,11 @@ function renderShop() {
           ${koreanParagraphs}
         </div>
       </section>
-      <section class="people-section" aria-label="Perfect adult model views">
-        <img class="people-image" src="${versionMainImage(homeIntro.peopleImage)}" alt="Perfect adult model views">
-      </section>
       <section class="shop-section" id="product-list" aria-label="Product collection">
         <div class="shop-grid">${tiles}</div>
+      </section>
+      <section class="people-section" id="people-views" aria-label="Perfect adult model views">
+        <img class="people-image" src="${versionMainImage(homeIntro.peopleImage)}" alt="Perfect adult model views">
       </section>
     </main>`);
   prepareProductHoverImages();
