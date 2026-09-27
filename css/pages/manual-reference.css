@@ -176,7 +176,12 @@ body[data-page="manual"] .footer-handle {
 }
 
 .manual-intro-column p {
-  margin: 0 0 calc(14px * var(--stage-scale, 1));
+  display: inline;
+  margin: 0;
+}
+
+.manual-intro-column p + p::before {
+  content: " ";
 }
 
 .manual-intro-conclusion {
@@ -265,10 +270,22 @@ body[data-page="manual"] .footer-handle {
   letter-spacing: inherit;
 }
 
-.manual-chapter-copy p,
+.manual-chapter-copy p {
+  display: inline;
+  margin: 0;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+}
+
+.manual-chapter-copy p + p::before {
+  content: " ";
+}
+
 .manual-chapter-copy ol,
 .manual-chapter-copy ul {
-  margin: 0 0 calc(14px * var(--stage-scale, 1));
+  margin: calc(6px * var(--stage-scale, 1)) 0 calc(14px * var(--stage-scale, 1));
   font-size: inherit;
   font-weight: inherit;
   line-height: inherit;
