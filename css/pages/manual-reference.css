@@ -39,6 +39,12 @@ body[data-page="manual"] .footer-handle {
   /* 왼쪽 부제목 자간/행간입니다. */
   --manual-title-line-height: 1.6;
   --manual-title-letter-spacing: -0.02em;
+  /* 메뉴얼 상단 이미지 박스 조정 */
+  --manual-hero-left-bg: #f7f7f7;
+  --manual-hero-right-bg: #f7f7f7;
+  --manual-hero-left-padding: calc(62px * var(--stage-scale, 1));
+  --manual-hero-left-position: center center;
+  --manual-hero-right-position: center top;
   width: 100%;
   min-height: 100vh;
   /* 페이지 전체 안쪽 여백: 위 / 오른쪽 / 아래 / 왼쪽 */
@@ -87,19 +93,23 @@ body[data-page="manual"] .footer-handle {
 .manual-section {
   margin-left: calc(var(--manual-sidebar) + calc(32px * var(--stage-scale, 1)));
 }
-
+/* 이미지 박스 사이즈 */
 .manual-hero {
   display: grid;
   grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
   gap: calc(14px * var(--stage-scale, 1));
   margin-bottom: calc(130px * var(--stage-scale, 1));
 }
-
+/* 이미지 높이 */
 .manual-hero-panel {
   height: calc(475px * var(--stage-scale, 1));
   margin: 0;
   overflow: hidden;
-  background: #f7f7f7;
+  background: var(--manual-hero-right-bg);
+}
+
+.manual-hero-panel-wide {
+  background: var(--manual-hero-left-bg);
 }
 
 .manual-hero-panel img {
@@ -108,14 +118,15 @@ body[data-page="manual"] .footer-handle {
   height: 100%;
   object-fit: cover;
 }
-
+/* 이미지 안쪽 여백 */
 .manual-hero-panel-wide img {
-  padding: calc(62px * var(--stage-scale, 1));
+  padding: var(--manual-hero-left-padding);
   object-fit: contain;
+  object-position: var(--manual-hero-left-position);
 }
 
 .manual-hero-panel:not(.manual-hero-panel-wide) img {
-  object-position: center top;
+  object-position: var(--manual-hero-right-position);
 }
 
 /* 왼쪽 제목 1칸 + 오른쪽 본문 3칸 */
