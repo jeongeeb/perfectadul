@@ -44,6 +44,7 @@ body[data-page="manual"] .footer-handle {
   --manual-hero-right-bg: #373737;
   --manual-hero-left-padding: calc(40px * var(--stage-scale, 1));
   --manual-hero-left-position: center 65%;
+  --manual-hero-right-fit: contain;
   --manual-hero-right-position: center top;
   width: 100%;
   min-height: 100vh;
@@ -126,6 +127,7 @@ body[data-page="manual"] .footer-handle {
 }
 
 .manual-hero-panel:not(.manual-hero-panel-wide) img {
+  object-fit: var(--manual-hero-right-fit);
   object-position: var(--manual-hero-right-position);
 }
 
