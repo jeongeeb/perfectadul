@@ -31,7 +31,7 @@ body[data-page="manual"] .footer-handle {
 
 .manual-intro h2 {
   margin: 0 0 calc(18px * var(--stage-scale, 1));
-  font-family: "Noto Sans KR", "Helvetica Neue", Arial, sans-serif;
+  font-family: var(--kr-font);
   font-size: calc(20px * var(--stage-scale, 1));
   font-weight: 800;
   line-height: 1.2;
@@ -46,7 +46,7 @@ body[data-page="manual"] .footer-handle {
 
 .manual-intro-column {
   min-width: 0;
-  font-family: "Noto Sans KR", "Helvetica Neue", Arial, sans-serif;
+  font-family: var(--kr-font);
   font-size: calc(20px * var(--stage-scale, 1));
   font-weight: 400;
   line-height: 1.45;
@@ -107,7 +107,7 @@ body[data-page="manual"] .footer-handle {
   max-width: none;
   column-count: 3;
   column-gap: calc(64px * var(--stage-scale, 1));
-  font-family: "Noto Sans KR", "Helvetica Neue", Arial, sans-serif;
+  font-family: var(--kr-font);
 }
 
 .manual-copy h3 {
@@ -252,7 +252,7 @@ body[data-page="manual"] .footer-handle {
 .manual-rail h2,
 .manual-intro > h2 {
   margin: 0;
-  font-family: "Noto Sans KR", "Helvetica Neue", Arial, sans-serif;
+  font-family: var(--kr-font);
   font-size: calc(42px * var(--stage-scale, 1));
   font-weight: 700;
   line-height: 1.06;
@@ -322,7 +322,7 @@ body[data-page="manual"] .footer-handle {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: var(--manual-gap);
   min-width: 0;
-  font-family: "Noto Sans KR", "Helvetica Neue", Arial, sans-serif;
+  font-family: var(--kr-font);
   font-size: calc(16px * var(--stage-scale, 1));
   font-weight: 400;
   line-height: 1.48;

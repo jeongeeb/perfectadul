@@ -137,7 +137,7 @@ body[data-page="manual"] .footer-handle {
 .manual-intro > h2 {
   margin: 0;
   padding-right: calc(28px * var(--stage-scale, 1));
-  font-family: "Helvetica Neue", Helvetica, "Noto Sans KR", Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, var(--kr-font);
   /* 왼쪽의 큰 장 제목 크기와 굵기입니다. */
   font-size: calc(15px * var(--stage-scale, 1));
   font-weight: 500;
@@ -162,7 +162,7 @@ body[data-page="manual"] .footer-handle {
 .manual-intro-column,
 .manual-chapter-copy {
   min-width: 0;
-  font-family: "Noto Sans KR", "Helvetica Neue", Arial, sans-serif;
+  font-family: var(--kr-font);
   /* 메뉴얼 본문의 공통 글자 크기, 굵기, 행간, 자간입니다. */
   font-size: calc(12px * var(--stage-scale, 1));
   font-weight: 400;

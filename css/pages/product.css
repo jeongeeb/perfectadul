@@ -98,7 +98,7 @@ body[data-page="detail"] .site-frame {
   /* [글자 색상] 현재 노란색입니다. HEX 색상 코드를 변경하면 됩니다. */
   color: #ffff00;
   /* [폰트 종류] 상세페이지 진입 시 잠깐 보이는 큰 제품명에만 적용됩니다. */
-  font-family: "SM3 Gyeonchul Myeongjo", "Noto Sans KR", serif;
+  font-family: var(--kr-font), "SM3 Gyeonchul Myeongjo", serif;
 
   /* [글자 크기] 현재 기준은 550px이며 숫자가 커질수록 글자가 커집니다. */
   font-size: calc(450px * var(--stage-scale, 1));

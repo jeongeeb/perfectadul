@@ -146,7 +146,7 @@ body[data-page="shop"] .footer-handle {
 /* 한글 폰트: 22px / 행간 26px / 자간 -2% */
 .intro-copy-korean {
   margin-top: calc(32px * var(--stage-scale, 1));
-  font-family: "Noto Sans KR", "Helvetica Neue", Arial, sans-serif;
+  font-family: var(--kr-font);
   font-size: calc(18px * var(--stage-scale, 1));
   line-height: calc(28px * var(--stage-scale, 1));
   letter-spacing: -0.02em;
