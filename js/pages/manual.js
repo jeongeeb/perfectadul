@@ -40,10 +40,10 @@ function renderManual() {
           <div class="manual-intro-column">
             <p>사회가 이상적인 어른에게 요구하는 행동과 태도를 관찰하고, 이를 지침서와 제품의 형태로 구체화한 가상의 성인용품 브랜드입니다.</p>
             <p>각 제품은 자립, 책임, 절제, 경청, 감정 통제, 품위와 같은 사회적 덕목을 하나씩 수행하도록 설계되었습니다.</p>
-            <p>완벽한 어른이 되는 일은 생각보다 간단합니다.<br>지침서를 따라 제품을 당신의 몸에 착용하면 됩니다.<br>그리고 모든 장치를 착용한 순간 당신은 완벽한 어른처럼 보이게 됩니다. 당신은 이제 완벽한 어른을 말하는 사회의 기준 그 자체입니다.</p>
+            <p>완벽한 어른이 되는 일은 생각보다 간단합니다. 지침서를 따라 제품을 당신의 몸에 착용하면 됩니다. 그리고 모든 장치를 착용한 순간 당신은 완벽한 어른처럼 보이게 됩니다. 당신은 이제 완벽한 어른을 말하는 사회의 기준 그 자체입니다.</p>
           </div>
           <div class="manual-intro-column manual-intro-conclusion">
-            <p>이 브랜드는 사용자를 완벽하게 만들어주지 않습니다.<br>다만, 완벽한 어른처럼 보이게는 만들어줍니다.</p>
+            <p>이 브랜드는 사용자를 완벽하게 만들어주지 않습니다. 다만, 완벽한 어른처럼 보이게는 만들어줍니다.</p>
           </div>
         </div>
         <div class="manual-intro-brand">
@@ -97,20 +97,20 @@ function renderManual() {
           <h3>시대에 따라 변화한 어른의 기준</h3>
           <h4>전통시대</h4>
           <p>전통 사회의 어른은 공동체의 윤리적 기준이자 의사결정권자였다. 나이, 가문, 신분, 학식, 도덕성이 결합해 권위가 부여되었다. 어른은 개인으로 존재하기보다 가문과 공동체 질서의 대표자로 기능했다.</p>
-          <p><strong>표준 어른의 기준</strong><br>사서삼경을 비롯한 유교적 교양, 엄격한 도덕성, 가문의 명예를 지키는 책임, 아랫세대를 가르칠 권위.</p>
-          <p><strong>역할과 행동</strong><br>장유유서에 따라 아랫세대를 훈육한다. 희로애락을 함부로 드러내지 않는 진중함을 미덕으로 삼는다. 제사와 가문 유지, 공동체 질서 보존을 평생의 책임으로 여긴다.</p>
-          <p><strong>현대 지침서로 번역하면</strong><br>“감정을 함부로 드러내지 말 것.”<br>“아랫세대에게 모범으로 보일 것.”<br>“가문의 체면을 손상시키지 말 것.”</p>
+          <p><strong>표준 어른의 기준</strong> 사서삼경을 비롯한 유교적 교양, 엄격한 도덕성, 가문의 명예를 지키는 책임, 아랫세대를 가르칠 권위.</p>
+          <p><strong>역할과 행동</strong> 장유유서에 따라 아랫세대를 훈육한다. 희로애락을 함부로 드러내지 않는 진중함을 미덕으로 삼는다. 제사와 가문 유지, 공동체 질서 보존을 평생의 책임으로 여긴다.</p>
+          <p><strong>현대 지침서로 번역하면</strong> “감정을 함부로 드러내지 말 것.” “아랫세대에게 모범으로 보일 것.” “가문의 체면을 손상시키지 말 것.”</p>
 
           <h4>근대</h4>
           <p>식민지, 전쟁, 산업화 시기를 거치며 어른의 기준은 도덕적 권위에서 생존 능력과 경제적 부양 능력으로 이동했다.</p>
-          <p><strong>표준 어른의 기준</strong><br>가족을 부양할 경제력, 조직 안에서의 성과, 자신의 감정보다 생존과 결과를 우선하는 태도.</p>
-          <p><strong>역할과 행동</strong><br>개인의 행복이나 감정적 요구보다 가족의 생계를 우선한다. 자녀에게 가난을 물려주지 않는 것을 사랑의 방식으로 여긴다. 말보다 행동과 결과로 책임감을 증명한다.</p>
-          <p><strong>현대 지침서로 번역하면</strong><br>“피곤해도 기능할 것.”<br>“가족과 조직을 위해 감정을 미룰 것.”<br>“결과로 증명할 것.”</p>
+          <p><strong>표준 어른의 기준</strong> 가족을 부양할 경제력, 조직 안에서의 성과, 자신의 감정보다 생존과 결과를 우선하는 태도.</p>
+          <p><strong>역할과 행동</strong> 개인의 행복이나 감정적 요구보다 가족의 생계를 우선한다. 자녀에게 가난을 물려주지 않는 것을 사랑의 방식으로 여긴다. 말보다 행동과 결과로 책임감을 증명한다.</p>
+          <p><strong>현대 지침서로 번역하면</strong> “피곤해도 기능할 것.” “가족과 조직을 위해 감정을 미룰 것.” “결과로 증명할 것.”</p>
 
           <h4>현대</h4>
           <p>현대 사회에서 어른은 더 이상 나이만으로 인정받지 않는다. 표준 어른은 타인을 존중하고, 강요보다 권유를 선택하며, 자신의 잘못을 인정하고 사과할 수 있는 사람으로 재정의된다.</p>
-          <p><strong>표준 어른의 기준</strong><br>정서적 성숙, 소통 능력, 자기관리, 경제적 자립, 타인의 경계를 침범하지 않는 태도, 사회적 약자와 공동체 문제에 대한 시민의식.</p>
-          <p><strong>현대 지침서로 번역하면</strong><br>“강요하지 말 것.”<br>“공감할 것.”<br>“사과할 것.”<br>“민폐가 되지 말 것.”<br>“계속 자기관리할 것.”</p>
+          <p><strong>표준 어른의 기준</strong> 정서적 성숙, 소통 능력, 자기관리, 경제적 자립, 타인의 경계를 침범하지 않는 태도, 사회적 약자와 공동체 문제에 대한 시민의식.</p>
+          <p><strong>현대 지침서로 번역하면</strong> “강요하지 말 것.” “공감할 것.” “사과할 것.” “민폐가 되지 말 것.” “계속 자기관리할 것.”</p>
 
           <hr>
           <h3>삼강행실도에서 「聖人用品 指針」로</h3>
@@ -164,20 +164,20 @@ function renderManual() {
           <h3>Changing Standards of Adulthood</h3>
           <h4>Traditional Era</h4>
           <p>In traditional society, an adult served as both the ethical standard and a decision-maker for the community. Authority arose from a combination of age, lineage, status, education, and morality. Adults functioned less as individuals than as representatives of family and communal order.</p>
-          <p><strong>Standard of Adulthood</strong><br>Confucian learning, including the Four Books and Five Classics; strict morality; responsibility for family honor; and authority to instruct younger generations.</p>
-          <p><strong>Roles and Behavior</strong><br>Discipline younger generations according to age hierarchy. Regard the restraint of joy, anger, sorrow, and pleasure as a virtue of seriousness. Treat ancestral rites, family continuity, and communal order as lifelong responsibilities.</p>
-          <p><strong>Translated into a Contemporary Manual</strong><br>“Do not reveal emotion carelessly.”<br>“Appear exemplary to younger generations.”<br>“Do not damage the family’s dignity.”</p>
+          <p><strong>Standard of Adulthood</strong> Confucian learning, including the Four Books and Five Classics; strict morality; responsibility for family honor; and authority to instruct younger generations.</p>
+          <p><strong>Roles and Behavior</strong> Discipline younger generations according to age hierarchy. Regard the restraint of joy, anger, sorrow, and pleasure as a virtue of seriousness. Treat ancestral rites, family continuity, and communal order as lifelong responsibilities.</p>
+          <p><strong>Translated into a Contemporary Manual</strong> “Do not reveal emotion carelessly.” “Appear exemplary to younger generations.” “Do not damage the family’s dignity.”</p>
 
           <h4>Modernization Era</h4>
           <p>Through colonization, war, and industrialization, the standard of adulthood shifted from moral authority toward survival and the economic capacity to support a family.</p>
-          <p><strong>Standard of Adulthood</strong><br>The financial ability to support a family, performance within an organization, and a willingness to prioritize survival and results over personal feelings.</p>
-          <p><strong>Roles and Behavior</strong><br>Place the family’s livelihood before personal happiness or emotional needs. Understand the refusal to pass poverty to one’s children as a form of love. Prove responsibility through action and results rather than words.</p>
-          <p><strong>Translated into a Contemporary Manual</strong><br>“Continue functioning while exhausted.”<br>“Postpone emotion for family and organization.”<br>“Prove yourself through results.”</p>
+          <p><strong>Standard of Adulthood</strong> The financial ability to support a family, performance within an organization, and a willingness to prioritize survival and results over personal feelings.</p>
+          <p><strong>Roles and Behavior</strong> Place the family’s livelihood before personal happiness or emotional needs. Understand the refusal to pass poverty to one’s children as a form of love. Prove responsibility through action and results rather than words.</p>
+          <p><strong>Translated into a Contemporary Manual</strong> “Continue functioning while exhausted.” “Postpone emotion for family and organization.” “Prove yourself through results.”</p>
 
           <h4>Contemporary Era</h4>
           <p>In contemporary society, age alone no longer grants recognition as an adult. The standard adult is redefined as someone who respects others, chooses persuasion over coercion, acknowledges mistakes, and knows how to apologize.</p>
-          <p><strong>Standard of Adulthood</strong><br>Emotional maturity, communication skills, self-management, financial independence, respect for others’ boundaries, and civic awareness of vulnerable groups and communal issues.</p>
-          <p><strong>Translated into a Contemporary Manual</strong><br>“Do not coerce.”<br>“Empathize.”<br>“Apologize.”<br>“Do not inconvenience others.”<br>“Continue managing yourself.”</p>
+          <p><strong>Standard of Adulthood</strong> Emotional maturity, communication skills, self-management, financial independence, respect for others’ boundaries, and civic awareness of vulnerable groups and communal issues.</p>
+          <p><strong>Translated into a Contemporary Manual</strong> “Do not coerce.” “Empathize.” “Apologize.” “Do not inconvenience others.” “Continue managing yourself.”</p>
 
           <hr>
           <h3>From Samgang Haengsildo to 「聖人用品 指針」</h3>

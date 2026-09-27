@@ -32,7 +32,7 @@ body[data-page="manual"] .footer-handle {
   --manual-rail: calc(250px * var(--stage-scale, 1));
   --manual-sidebar: calc(270px * var(--stage-scale, 1));
   /* 모든 본문 열 사이의 가로 간격입니다. */
-  --manual-gap: calc(25px * var(--stage-scale, 1));
+  --manual-gap: calc(20px * var(--stage-scale, 1));
   /* 메뉴얼 본문 자간/행간은 여기서 바꾸면 전체에 적용됩니다. */
   --manual-body-line-height: 1.6;
   --manual-body-letter-spacing: -0.022em;
@@ -41,9 +41,10 @@ body[data-page="manual"] .footer-handle {
   --manual-title-letter-spacing: -0.02em;
   width: 100%;
   min-height: 100vh;
-  /* 페이지 전체 안쪽 여백: 위 / 좌우 / 아래 */
-  padding: calc(34px * var(--stage-scale, 1)) calc(64px * var(--stage-scale, 1))
-    calc(180px * var(--stage-scale, 1)) calc(100px * var(--stage-scale, 1));
+  /* 페이지 전체 안쪽 여백: 위 / 오른쪽 / 아래 / 왼쪽 */
+  padding: calc(34px * var(--stage-scale, 1))
+    calc(200px * var(--stage-scale, 1)) calc(200px * var(--stage-scale, 1))
+    calc(50px * var(--stage-scale, 1));
   color: #111;
   background: #fff;
 }
@@ -118,13 +119,16 @@ body[data-page="manual"] .footer-handle {
 }
 
 /* 왼쪽 제목 1칸 + 오른쪽 본문 3칸 */
-.manual-editorial-row,
 .manual-intro {
   display: grid;
   /* 왼쪽 제목 1칸 + 오른쪽 본문 3칸입니다. */
   grid-template-columns: var(--manual-rail) repeat(3, minmax(0, 1fr));
   column-gap: var(--manual-gap);
   align-items: start;
+}
+
+.manual-editorial-row {
+  display: block;
 }
 
 .manual-rail,
@@ -221,7 +225,7 @@ body[data-page="manual"] .footer-handle {
 
 .manual-chapter {
   /* 각 강령 장 사이의 세로 간격입니다. */
-  margin-top: calc(160px * var(--stage-scale, 1));
+  margin-top: calc(100px * var(--stage-scale, 1));
 }
 
 .manual-chapter:first-child {
@@ -229,13 +233,10 @@ body[data-page="manual"] .footer-handle {
 }
 
 .manual-chapter .manual-rail {
-  /* 스크롤 중 왼쪽 장 제목이 잠시 화면에 고정되는 설정입니다. */
-  position: sticky;
-  top: calc(104px * var(--stage-scale, 1));
+  margin-bottom: calc(18px * var(--stage-scale, 1));
 }
 
 .manual-chapter-copy {
-  grid-column: 2 / -1;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   /* 오른쪽 본문 세 칸 사이 간격은 위의 --manual-gap을 사용합니다. */
@@ -244,17 +245,6 @@ body[data-page="manual"] .footer-handle {
 
 .manual-subsection {
   min-width: 0;
-}
-
-/* 두 묶음인 장도 시각적으로는 세 열을 유지합니다. */
-.manual-chapter-copy[data-columns="2"] {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-.manual-chapter-copy[data-columns="2"] .manual-subsection:last-child {
-  grid-column: span 2;
-  column-count: 2;
-  column-gap: var(--manual-gap);
 }
 
 .manual-chapter-copy[data-columns="1"] {
