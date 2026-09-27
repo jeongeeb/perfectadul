@@ -176,12 +176,12 @@ body[data-page="manual"] .footer-handle {
 }
 
 .manual-intro-column p {
-  display: inline;
+  display: block;
   margin: 0;
 }
 
 .manual-intro-column p + p::before {
-  content: " ";
+  content: none;
 }
 
 .manual-intro-conclusion {
@@ -271,7 +271,7 @@ body[data-page="manual"] .footer-handle {
 }
 
 .manual-chapter-copy p {
-  display: inline;
+  display: block;
   margin: 0;
   font-size: inherit;
   font-weight: inherit;
@@ -280,7 +280,7 @@ body[data-page="manual"] .footer-handle {
 }
 
 .manual-chapter-copy p + p::before {
-  content: " ";
+  content: none;
 }
 
 .manual-chapter-copy ol,
