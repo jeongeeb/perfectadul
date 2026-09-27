@@ -23,7 +23,7 @@ function renderManual() {
       </aside>
       <section class="manual-hero" aria-label="Manual visual overview">
         <figure class="manual-hero-panel manual-hero-panel-wide">
-          <img src="${versionMainImage("assets/basic person/all_person.png")}" alt="Perfect adult model views">
+          <img src="${versionMainImage("assets/manual/1.png")}" alt="Manual top visual">
         </figure>
         <figure class="manual-hero-panel">
           <img src="${versionMainImage("assets/Product Detail Page/1.jpg")}" alt="Product manual detail page">
