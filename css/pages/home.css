@@ -1,7 +1,7 @@
 /* 메인페이지 전용 스타일 */
 body[data-page="shop"] .site-frame {
   min-height: calc(3650px * var(--stage-scale, 1));
-  background: #fff;
+  background: #820202;
 }
 
 .shop-page {
@@ -12,14 +12,16 @@ body[data-page="shop"] .site-frame {
   background: #fff;
 }
 
+/* 메인페이지 입술 버튼도 실제 30px 바깥 여백선에 맞춥니다. */
+body[data-page="shop"] .brand-toggle {
+  top: 30px;
+  right: 30px;
+  left: auto;
+}
+
 body[data-page="shop"] .footer-handle {
   left: 30px;
   bottom: 30px;
-}
-
-/* 인물 각도 이미지 다음에 큰 하단 로고가 바로 이어지도록 합니다. */
-body[data-page="shop"] .site-end {
-  padding-top: 0;
 }
 
 /* 첫 화면: 영문 소개 / 중앙 인물 / 한글 소개 */
@@ -28,15 +30,16 @@ body[data-page="shop"] .site-end {
   display: grid;
   grid-template-columns:
     minmax(0, 1fr)
-    calc(620px * var(--stage-scale, 1))
+    calc(250px * var(--stage-scale, 1))
     minmax(0, 1fr);
   align-items: start;
-  column-gap: calc(42px * var(--stage-scale, 1));
+  column-gap: calc(54px * var(--stage-scale, 1));
   width: 100%;
   /* 위아래 30px를 제외한 첫 화면 전체 높이 */
   height: calc(100vh - 60px);
-  padding: calc(210px * var(--stage-scale, 1))
-    calc(30px * var(--stage-scale, 1)) calc(34px * var(--stage-scale, 1));
+  /* 바깥 .shop-page에 이미 좌우 30px가 있으므로 좌우 패딩은 0입니다. */
+  padding: calc(210px * var(--stage-scale, 1)) 0
+    calc(34px * var(--stage-scale, 1));
   overflow: visible;
   background: #fff;
 }
@@ -53,7 +56,7 @@ body[data-page="shop"] .site-end {
   grid-column: 1;
   font-family: "Arial Narrow", Arial, sans-serif;
   font-size: calc(20px * var(--stage-scale, 1));
-  line-height: calc(28px * var(--stage-scale, 1));
+  line-height: calc(30px * var(--stage-scale, 1));
   letter-spacing: -0.03em;
   text-align: left;
 }
@@ -86,37 +89,27 @@ body[data-page="shop"] .site-end {
   font-style: italic;
 }
 
-.intro-hero-pair {
-  /* 전면과 후면 인물은 항상 한 묶음으로 화면 중앙에 정렬됩니다. */
+.intro-hero-person {
+  /* 크기를 바꿔도 화면의 정확한 가로 중앙을 기준으로 커집니다. */
   position: absolute;
   left: 50%;
   bottom: 0;
   z-index: 1;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  gap: calc(36px * var(--stage-scale, 1));
-  width: calc(620px * var(--stage-scale, 1));
-  max-height: calc(100vh - 114px);
-  transform: translateX(-50%);
-}
-
-.intro-hero-person {
   display: block;
   width: auto;
   height: calc(900px * var(--stage-scale, 1));
-  max-height: calc(100vh - 114px);
   object-fit: contain;
+  transform: translateX(-50%);
 }
 
-/* 제품 목록 다음, 하단 큰 로고 바로 위의 인물 각도 이미지 */
+/* 두 번째 화면: 합쳐 둔 인물 이미지는 크기만 여기서 조절합니다. */
 .people-section {
   display: flex;
   align-items: flex-end;
   justify-content: center;
   width: 100%;
   min-height: calc(560px * var(--stage-scale, 1));
-  padding: calc(60px * var(--stage-scale, 1)) 0 0;
+  padding: calc(30px * var(--stage-scale, 1)) 0 0;
   overflow: visible;
   background: #fff;
 }
@@ -161,20 +154,9 @@ body[data-page="shop"] .site-end {
     text-align: left;
   }
 
-  .intro-hero-pair {
-    position: relative;
-    left: auto;
-    bottom: auto;
-    grid-row: 2;
-    gap: 12px;
-    width: 100%;
-    margin: 24px auto;
-    transform: none;
-  }
-
   .intro-hero-person {
-    width: min(43%, 230px);
-    height: auto;
-    max-height: 56svh;
+    grid-row: 2;
+    height: 56svh;
+    margin: 24px auto;
   }
 }
