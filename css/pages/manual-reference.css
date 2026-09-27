@@ -40,10 +40,10 @@ body[data-page="manual"] .footer-handle {
   --manual-title-line-height: 1.6;
   --manual-title-letter-spacing: -0.02em;
   /* 메뉴얼 상단 이미지 박스 조정 */
-  --manual-hero-left-bg: #f7f7f7;
-  --manual-hero-right-bg: #f7f7f7;
-  --manual-hero-left-padding: calc(62px * var(--stage-scale, 1));
-  --manual-hero-left-position: center center;
+  --manual-hero-left-bg: #2c2c2c;
+  --manual-hero-right-bg: #373737;
+  --manual-hero-left-padding: calc(40px * var(--stage-scale, 1));
+  --manual-hero-left-position: center 65%;
   --manual-hero-right-position: center top;
   width: 100%;
   min-height: 100vh;
@@ -61,7 +61,7 @@ body[data-page="manual"] .footer-handle {
   left: calc(30px * var(--stage-scale, 1));
   z-index: 12;
   width: calc(210px * var(--stage-scale, 1));
-  color: #9a9a9a;
+  color: #4b4b4b;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: calc(16px * var(--stage-scale, 1));
   font-weight: 600;
@@ -102,7 +102,7 @@ body[data-page="manual"] .footer-handle {
 }
 /* 이미지 높이 */
 .manual-hero-panel {
-  height: calc(475px * var(--stage-scale, 1));
+  height: calc(400px * var(--stage-scale, 1));
   margin: 0;
   overflow: hidden;
   background: var(--manual-hero-right-bg);

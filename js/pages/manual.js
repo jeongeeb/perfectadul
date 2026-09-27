@@ -26,7 +26,7 @@ function renderManual() {
           <img src="${versionMainImage("assets/manual/1.png")}" alt="Manual top visual">
         </figure>
         <figure class="manual-hero-panel">
-          <img src="${versionMainImage("assets/Product Detail Page/1.jpg")}" alt="Product manual detail page">
+          <img src="${versionMainImage("assets/manual/2.png")}" alt="Manual product visual">
         </figure>
       </section>
       <section class="manual-intro" aria-labelledby="manual-intro-title">
