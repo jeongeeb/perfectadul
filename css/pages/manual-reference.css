@@ -16,11 +16,12 @@
 */
 body[data-page="manual"],
 body[data-page="manual"] .site-frame {
-  background: #fff;
+  --manual-page-bg: #313131;
+  background: var(--manual-page-bg);
 }
 
 body[data-page="manual"] .top-bar {
-  background: #fff;
+  background: var(--manual-page-bg);
 }
 
 body[data-page="manual"] .footer-handle {
@@ -40,20 +41,20 @@ body[data-page="manual"] .footer-handle {
   --manual-title-line-height: 1.6;
   --manual-title-letter-spacing: -0.02em;
   /* 메뉴얼 상단 이미지 박스 조정 */
-  --manual-hero-left-bg: #2c2c2c;
+  --manual-hero-left-bg: #fbff00;
   --manual-hero-right-bg: #373737;
   --manual-hero-left-padding: calc(40px * var(--stage-scale, 1));
-  --manual-hero-left-position: center 65%;
-  --manual-hero-right-fit: contain;
-  --manual-hero-right-position: center top;
+  --manual-hero-left-position: center 50%;
+  --manual-hero-right-fit: center 40%;
+  --manual-hero-right-position: center 100%;
   width: 100%;
   min-height: 100vh;
   /* 페이지 전체 안쪽 여백: 위 / 오른쪽 / 아래 / 왼쪽 */
-  padding: calc(34px * var(--stage-scale, 1))
+  padding: calc(120px * var(--stage-scale, 1))
     calc(200px * var(--stage-scale, 1)) calc(200px * var(--stage-scale, 1))
     calc(50px * var(--stage-scale, 1));
-  color: #111;
-  background: #fff;
+  color: #fbff00;
+  background: var(--manual-page-bg);
 }
 
 .manual-side-index {
@@ -98,12 +99,12 @@ body[data-page="manual"] .footer-handle {
 .manual-hero {
   display: grid;
   grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
-  gap: calc(14px * var(--stage-scale, 1));
+  gap: calc(30px * var(--stage-scale, 1));
   margin-bottom: calc(130px * var(--stage-scale, 1));
 }
 /* 이미지 높이 */
 .manual-hero-panel {
-  height: calc(400px * var(--stage-scale, 1));
+  height: calc(300px * var(--stage-scale, 1));
   margin: 0;
   overflow: hidden;
   background: var(--manual-hero-right-bg);
