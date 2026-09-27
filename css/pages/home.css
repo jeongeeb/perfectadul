@@ -76,7 +76,7 @@ body[data-page="shop"] .footer-handle {
 .intro-copy h2 {
   margin: 0;
   font: inherit;
-  font-weight: 400;
+  font-weight: 200;
   text-decoration: underline;
   text-underline-offset: calc(2px * var(--stage-scale, 1));
 }
@@ -89,17 +89,48 @@ body[data-page="shop"] .footer-handle {
   font-style: italic;
 }
 
-.intro-hero-person {
-  /* 크기를 바꿔도 화면의 정확한 가로 중앙을 기준으로 커집니다. */
+.intro-hero-pair {
+  /* 앞·뒤 이미지는 이 영역 안에서 같은 위치에 겹쳐집니다. */
   position: absolute;
   left: 50%;
   bottom: 0;
   z-index: 1;
+  width: calc(300px * var(--stage-scale, 1));
+  height: calc(900px * var(--stage-scale, 1));
+  max-height: calc(100vh - 114px);
+  transform: translateX(-50%);
+}
+
+.intro-hero-person {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
   display: block;
   width: auto;
-  height: calc(900px * var(--stage-scale, 1));
+  height: 100%;
   object-fit: contain;
   transform: translateX(-50%);
+  transition: opacity 180ms ease;
+}
+
+.intro-hero-person-front {
+  z-index: 2;
+  opacity: 1;
+}
+
+.intro-hero-person-back {
+  z-index: 1;
+  opacity: 0;
+}
+
+@media (hover: hover) {
+  .intro-hero-pair:hover .intro-hero-person-front {
+    opacity: 0;
+  }
+
+  .intro-hero-pair:hover .intro-hero-person-back {
+    opacity: 1;
+  }
 }
 
 /* 두 번째 화면: 합쳐 둔 인물 이미지는 크기만 여기서 조절합니다. */
@@ -154,9 +185,14 @@ body[data-page="shop"] .footer-handle {
     text-align: left;
   }
 
-  .intro-hero-person {
+  .intro-hero-pair {
+    position: relative;
+    left: auto;
+    bottom: auto;
     grid-row: 2;
+    width: 100%;
     height: 56svh;
     margin: 24px auto;
+    transform: none;
   }
 }
