@@ -303,6 +303,7 @@ const homeIntro = {
     "당신도 이 남성처럼 완벽한 어른이 될 수 있습니다.",
     "<em>[사회적으로 완벽해 지세요.]</em>",
   ],
-  heroImage: "assets/basic person/16_full_front.png",
+  heroFrontImage: "assets/basic person/16_full_front.png",
+  heroBackImage: "assets/basic person/16_full_back.png",
   peopleImage: "assets/basic person/all_person.png",
 };

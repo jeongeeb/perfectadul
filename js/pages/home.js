@@ -24,7 +24,10 @@ function renderShop() {
           <h2>${homeIntro.englishTitle}</h2>
           ${englishParagraphs}
         </div>
-        <img class="intro-hero-person" src="${versionMainImage(homeIntro.heroImage)}" alt="Perfect adult wearing the full collection">
+        <div class="intro-hero-pair" aria-label="Perfect adult collection front and back views">
+          <img class="intro-hero-person" src="${versionMainImage(homeIntro.heroFrontImage)}" alt="Perfect adult collection front view">
+          <img class="intro-hero-person" src="${versionMainImage(homeIntro.heroBackImage)}" alt="Perfect adult collection back view">
+        </div>
         <div class="intro-copy intro-copy-korean" lang="ko">
           <h2>${homeIntro.koreanTitle}</h2>
           ${koreanParagraphs}
