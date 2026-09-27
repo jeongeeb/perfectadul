@@ -24,5 +24,6 @@
   --ink: #050505;
   --muted: #b8b8b8;
   --page: #ffffff;
-  --kr-font: "SM3 Gyeonchul Myeongjo", "Noto Sans KR", serif;
+  --en-font: Helvetica, "Helvetica Neue", Arial, sans-serif;
+  --kr-font: Pretendard, "Noto Sans KR", "Helvetica Neue", Arial, sans-serif;
 }

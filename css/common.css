@@ -24,7 +24,7 @@ body {
   overflow-y: auto;
   background: transparent;
   color: var(--ink);
-  font-family: "Helvetica", "Arial Narrow", Arial, sans-serif;
+  font-family: var(--en-font);
 }
 
 /*
@@ -163,7 +163,7 @@ textarea,
 }
 
 .side-nav {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: var(--en-font);
   font-size: 16px;
   font-weight: 500;
   line-height: 1;
@@ -239,7 +239,7 @@ textarea,
 /* 하단 프로젝트 정보: Helvetica Neue / 14px / 행간 18px / 자간 -2% */
 .site-end-copy {
   margin-top: calc(30px * var(--stage-scale, 1));
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: var(--en-font);
   font-size: calc(14px * var(--stage-scale, 1));
   font-weight: 500;
   line-height: calc(18px * var(--stage-scale, 1));

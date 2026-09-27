@@ -136,7 +136,7 @@ body[data-page="shop"] .footer-handle {
 
 /* 영문 폰트: 20px / 행간 28px / 자간 -3% */
 .intro-copy-english {
-  font-family: "Arial Narrow", Arial, sans-serif;
+  font-family: var(--en-font);
   font-size: calc(20px * var(--stage-scale, 1));
   line-height: calc(26px * var(--stage-scale, 1));
   letter-spacing: -0.04em;
