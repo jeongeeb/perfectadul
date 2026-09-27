@@ -180,7 +180,7 @@ function navMarkup() {
   const isArchive = document.body.dataset.page === "archive";
 
   return `
-    <div class="menu-panel">
+    <div class="menu-panel" id="site-navigation">
       <nav class="side-nav" aria-label="Primary navigation">
         <span class="nav-primary-group">
           <a class="${isShop ? "active" : ""}" href="index.html"${isShop ? ' aria-current="page"' : ""}>Shop</a>
@@ -200,6 +200,9 @@ function headerMarkup() {
           <img class="brand-logo" src="assets/top-logo.png" alt="聖人用品指針">
         </a>
       </h1>
+      <button class="brand-toggle" type="button" aria-label="Toggle menu" aria-controls="site-navigation" aria-expanded="true">
+        <img class="brand-mark" src="assets/product_mein/Menu bar.png" alt="">
+      </button>
     </header>`;
 }
 
@@ -282,6 +285,8 @@ function bindFooterMagneticScroll() {
 }
 
 function renderShell(content) {
+  // 모든 페이지는 메뉴가 보이는 상태로 시작하고, 입술 버튼으로 숨깁니다.
+  document.body.classList.remove("menus-hidden");
   document.body.innerHTML = `
     <div class="site-frame">
       ${headerMarkup()}
