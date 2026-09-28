@@ -339,22 +339,22 @@ body[data-page="detail"] .site-frame {
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  overflow: visible;
+  overflow: hidden;
   padding: calc(115px * var(--stage-scale, 1))
-    calc(42px * var(--stage-scale, 1)) calc(28px * var(--stage-scale, 1));
+    calc(48px * var(--stage-scale, 1)) calc(42px * var(--stage-scale, 1));
   color: #ffff00;
   font-family: "SM3 Gyeonchul Myeongjo", "Noto Sans KR", serif;
-  font-size: calc(450px * var(--stage-scale, 1));
+  font-size: calc(170px * var(--stage-scale, 1));
   font-weight: 600;
-  line-height: 1;
-  letter-spacing: -10px;
+  line-height: 0.96;
+  letter-spacing: calc(-4px * var(--stage-scale, 1));
   text-align: center;
   text-transform: uppercase;
   word-break: keep-all;
   pointer-events: none;
   visibility: hidden;
   opacity: 0;
-  transform: translateY(calc(24px * var(--stage-scale, 1))) scaleX(0.6);
+  transform: translateY(calc(24px * var(--stage-scale, 1)));
   transform-origin: center bottom;
   transition:
     opacity 420ms ease,
@@ -365,23 +365,26 @@ body[data-page="detail"] .site-frame {
 .detail-info-overlay.is-open {
   visibility: visible;
   opacity: 1;
-  transform: translateY(0) scaleX(0.6);
+  transform: translateY(0);
   pointer-events: none;
 }
 
 .detail-quote-grid {
-  width: max-content;
-  max-width: none;
+  width: 100%;
+  max-width: calc(1850px * var(--stage-scale, 1));
   flex: 0 0 auto;
+  transform: scaleX(0.82);
+  transform-origin: center bottom;
 }
 
 .detail-quote-grid p {
   margin: 0;
-  white-space: nowrap;
+  white-space: normal;
 }
 
 .detail-quote-standard {
   padding-left: 0;
+  overflow-wrap: normal;
 }
 
 .detail-info-toggle.is-released,
