@@ -24,6 +24,16 @@ body[data-page="manual"] .top-bar {
   background: var(--manual-page-bg);
 }
 
+body[data-page="manual"] .menu-panel,
+body[data-page="manual"] .side-nav,
+body[data-page="manual"] .side-nav a {
+  color: #fff;
+}
+
+body[data-page="manual"] .brand-logo {
+  filter: invert(1);
+}
+
 body[data-page="manual"] .footer-handle {
   display: none;
 }

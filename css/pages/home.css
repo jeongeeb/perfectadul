@@ -11,10 +11,11 @@
   - 뒤 컬러 이미지: .intro-hero-image-back-color
   - 두 번째 인물 각도 이미지: .people-section, .people-image
   - 제품 목록 위치와 간격: .shop-grid
+  - 제품 목록과 하단 사람 이미지 사이 간격: .shop-section
 */
 body[data-page="shop"] .site-frame {
   min-height: calc(3650px * var(--stage-scale, 1));
-  background: #fff;
+  background: #FFFF00;
 }
 
 .shop-page {
@@ -22,7 +23,7 @@ body[data-page="shop"] .site-frame {
   min-height: calc(3650px * var(--stage-scale, 1));
   /* 화면 크기와 관계없이 실제 30px 바깥 여백 */
   padding: 0 30px 30px;
-  background: #fff;
+  background: #FFFF00;
 }
 
 body[data-page="shop"] .brand-title {
@@ -82,7 +83,7 @@ body[data-page="shop"] .footer-handle {
   padding: calc(520px * var(--stage-scale, 1)) 0
     calc(56px * var(--stage-scale, 1));
   overflow: visible;
-  background: #fff;
+  background: #FFFF00;
 }
 
 .intro-hero-figure {
@@ -119,9 +120,11 @@ body[data-page="shop"] .footer-handle {
   object-fit: fill;
 }
 
-/* 인물 이미지 개별 위치/크기 조정
+/* 인물 이미지 개별 위치/크기 조정:
+   원본 흑백/컬러 이미지 크기가 서로 달라서 여기서 겹침을 맞춥니다.
    translate(X, Y): 위치입니다. 예) translate(10px, -20px)
    scale(1): 크기입니다. 예) scale(1.05)는 5% 크게, scale(0.95)는 5% 작게
+   컬러가 흑백보다 크면 컬러 scale을 0.92처럼 줄이면 됩니다.
 */
 
 /* 앞모습 흑백 이미지 위치/크기 */
@@ -131,7 +134,7 @@ body[data-page="shop"] .footer-handle {
 
 /* 앞모습 컬러 이미지 위치/크기 */
 .intro-hero-image-front-color {
-  transform: translate(0, 0) scale(1);
+  transform: translate(0, 0) scale(0.922);
 }
 
 /* 뒷모습 흑백 이미지 위치/크기 */
@@ -141,7 +144,7 @@ body[data-page="shop"] .footer-handle {
 
 /* 뒷모습 컬러 이미지 위치/크기 */
 .intro-hero-image-back-color {
-  transform: translate(0, 0) scale(1);
+  transform: translate(0, 0) scale(0.915);
 }
 
 .intro-hero-image-color {
@@ -223,7 +226,8 @@ body[data-page="shop"] .footer-handle {
 
 .shop-section {
   position: relative;
-  min-height: calc(2050px * var(--stage-scale, 1));
+  /* 제품 목록과 아래 사람 이미지 사이 간격: 숫자를 키우면 사람 이미지가 더 아래로 내려갑니다. */
+  min-height: calc(2350px * var(--stage-scale, 1));
   background: #fff;
 }
 
@@ -236,7 +240,7 @@ body[data-page="shop"] .footer-handle {
   display: grid;
   grid-template-columns: repeat(4, calc(300px * var(--stage-scale, 1)));
   justify-content: space-between;
-  row-gap: calc(112px * var(--stage-scale, 1));
+  row-gap: calc(110px * var(--stage-scale, 1));
   min-height: calc(1800px * var(--stage-scale, 1));
 }
 
