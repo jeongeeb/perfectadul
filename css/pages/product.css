@@ -96,7 +96,7 @@ body[data-page="detail"] .site-frame {
   margin: 0;
 
   /* [글자 색상] 현재 노란색입니다. HEX 색상 코드를 변경하면 됩니다. */
-  color: #ffff00;
+  color: #FFFF00;
   /* [폰트 종류] 상세페이지 진입 시 잠깐 보이는 큰 제품명에만 적용됩니다. */
   font-family: "SM3 Gyeonchul Myeongjo", "Noto Sans KR", serif;
 
@@ -342,7 +342,7 @@ body[data-page="detail"] .site-frame {
   overflow: hidden;
   padding: calc(115px * var(--stage-scale, 1))
     calc(48px * var(--stage-scale, 1)) calc(42px * var(--stage-scale, 1));
-  color: #ffff00;
+  color: #FFFF00;
   font-family: "SM3 Gyeonchul Myeongjo", "Noto Sans KR", serif;
   font-size: calc(200px * var(--stage-scale, 1));
   font-weight: 700;
