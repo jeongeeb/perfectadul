@@ -344,9 +344,9 @@ body[data-page="detail"] .site-frame {
     calc(48px * var(--stage-scale, 1)) calc(42px * var(--stage-scale, 1));
   color: #ffff00;
   font-family: "SM3 Gyeonchul Myeongjo", "Noto Sans KR", serif;
-  font-size: calc(170px * var(--stage-scale, 1));
-  font-weight: 600;
-  line-height: 0.96;
+  font-size: calc(200px * var(--stage-scale, 1));
+  font-weight: 700;
+  line-height: 1;
   letter-spacing: calc(-4px * var(--stage-scale, 1));
   text-align: center;
   text-transform: uppercase;
@@ -354,18 +354,19 @@ body[data-page="detail"] .site-frame {
   pointer-events: none;
   visibility: hidden;
   opacity: 0;
-  transform: translateY(calc(24px * var(--stage-scale, 1)));
-  transform-origin: center bottom;
+  transform: none;
+  /* font-weight가 약하게 먹을 때 이 값을 0.5px, 1px처럼 키우면 더 굵어집니다. */
+  --stamp-quote-stroke: 0.5px;
+  -webkit-text-stroke: var(--stamp-quote-stroke) currentColor;
   transition:
-    opacity 420ms ease,
-    transform 420ms ease,
-    visibility 420ms ease;
+    opacity 700ms ease,
+    visibility 700ms ease;
 }
 
 .detail-info-overlay.is-open {
   visibility: visible;
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
   pointer-events: none;
 }
 
@@ -373,7 +374,8 @@ body[data-page="detail"] .site-frame {
   width: 100%;
   max-width: calc(1850px * var(--stage-scale, 1));
   flex: 0 0 auto;
-  transform: scaleX(0.82);
+  /* 서체의 가로 길이입니다. 1보다 크면 길어지고, 1보다 작으면 좁아집니다. */
+  transform: scaleX(1.08);
   transform-origin: center bottom;
 }
 
@@ -482,9 +484,9 @@ body[data-page="detail"] .site-frame {
 .detail-description-body {
   min-height: calc(340px * var(--stage-scale, 1));
   padding-top: calc(14px * var(--stage-scale, 1));
-  color: #6f6f6f;
+  color: #9a9a9a;
   font-family: var(--kr-font);
-  font-size: calc(14px * var(--stage-scale, 1));
+  font-size: calc(13px * var(--stage-scale, 1));
   font-weight: 500;
   line-height: calc(20px * var(--stage-scale, 1));
   letter-spacing: -0.025em;
