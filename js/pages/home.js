@@ -62,10 +62,18 @@ function renderShop() {
 
 function bindHomeScrollLogo() {
   const logo = document.querySelector(".home-scroll-logo");
+  const productSection = document.querySelector(".shop-section");
   if (!logo) return;
 
   const updateLogo = () => {
     logo.classList.toggle("is-small", window.scrollY > 36);
+    if (productSection) {
+      const switchPoint = productSection.offsetTop - 108;
+      document.body.classList.toggle(
+        "shop-products-visible",
+        window.scrollY >= switchPoint,
+      );
+    }
   };
 
   updateLogo();
