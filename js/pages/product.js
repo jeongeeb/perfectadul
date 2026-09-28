@@ -111,13 +111,13 @@ function productQuoteMarkup(product, productIndex) {
     <section class="detail-info-overlay" id="detail-info-overlay" aria-hidden="true">
       <div class="detail-quote-grid">
         <p class="detail-quote-doctrine">${productDoctrineLabel(productIndex)}: ${product.name}</p>
-        <p class="detail-quote-standard">사회 표준:<br>“${detail.standard || ""}”</p>
+        <p class="detail-quote-standard">사회 표준: “${detail.standard || ""}”</p>
       </div>
     </section>`;
 }
 
 function productDisplayName(product) {
-  return `${product.name.replace("|", "/")} / ${productTitleWithoutNumber(product.title)}`;
+  return productTitleWithoutNumber(product.title);
 }
 
 function productDisplayPrice(product) {
@@ -261,7 +261,7 @@ function prepareDetailPageImage() {
 
       if (isReleased) {
         if (panel) panel.style.top = `${releaseScrollY + 146 * scale}px`;
-        actions.style.top = `${releaseScrollY + window.innerHeight / 2}px`;
+        actions.style.top = `${releaseScrollY + 230 * scale}px`;
       } else {
         panel?.style.removeProperty("top");
         actions.style.removeProperty("top");

@@ -386,8 +386,8 @@ body[data-page="detail"] .site-frame {
 .detail-actions {
   /* 강령/제품명/가격/구매 버튼을 묶은 오른쪽 영역입니다. */
   right: calc(160px * var(--stage-scale, 1));
-  top: 50%;
-  transform: translateY(-50%);
+  top: calc(230px * var(--stage-scale, 1));
+  transform: none;
   display: grid;
   grid-template-columns: 1fr;
   align-items: start;
@@ -402,7 +402,7 @@ body[data-page="detail"] .site-frame {
   color: #000;
   font-size: calc(28px * var(--stage-scale, 1));
   font-weight: 700;
-  line-height: 1.08;
+  line-height: calc(30px * var(--stage-scale, 1));
   letter-spacing: -0.03em;
   text-align: left;
 }
@@ -432,7 +432,7 @@ body[data-page="detail"] .site-frame {
 
 .detail-product-details {
   width: 100%;
-  min-height: calc(380px * var(--stage-scale, 1));
+  height: calc(380px * var(--stage-scale, 1));
   margin-bottom: calc(80px * var(--stage-scale, 1));
 }
 
@@ -466,11 +466,11 @@ body[data-page="detail"] .site-frame {
 }
 
 .detail-description-toggle.is-open {
-  color: #000;
+  color: #9a9a9a;
 }
 
 .detail-description-body {
-  min-height: calc(340px * var(--stage-scale, 1));
+  height: calc(334px * var(--stage-scale, 1));
   padding-top: calc(14px * var(--stage-scale, 1));
   color: #6f6f6f;
   font-family: var(--kr-font);
@@ -478,12 +478,21 @@ body[data-page="detail"] .site-frame {
   font-weight: 500;
   line-height: calc(20px * var(--stage-scale, 1));
   letter-spacing: -0.025em;
+  overflow-y: auto;
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 320ms ease,
+    transform 320ms ease,
+    visibility 320ms ease;
 }
 
 .detail-description-body[hidden] {
   display: block;
   visibility: hidden;
   opacity: 0;
+  transform: translateY(calc(18px * var(--stage-scale, 1)));
+  overflow: hidden;
 }
 
 .detail-description-body p,
