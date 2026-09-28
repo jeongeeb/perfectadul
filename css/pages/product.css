@@ -371,9 +371,11 @@ body[data-page="detail"] .site-frame {
 }
 
 .detail-info-overlay.is-long-quote {
-  padding-top: calc(145px * var(--stage-scale, 1));
-  font-size: calc(150px * var(--stage-scale, 1));
-  line-height: 0.92;
+  padding-top: calc(115px * var(--stage-scale, 1));
+}
+
+.detail-info-overlay.is-long-quote .detail-quote-grid {
+  max-width: calc(1500px * var(--stage-scale, 1));
 }
 
 .detail-quote-grid {
