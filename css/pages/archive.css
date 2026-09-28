@@ -29,7 +29,7 @@ body[data-page="archive"] .footer-handle {
     calc(110px * var(--stage-scale, 1));
   background: #fff;
   color: #262626;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Arial Narrow", Arial, sans-serif;
 }
 
 .archive-filter {

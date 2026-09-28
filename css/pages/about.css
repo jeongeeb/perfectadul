@@ -22,7 +22,7 @@ body[data-page="about"] .site-frame {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: calc(979px * var(--stage-scale, 1));
+  min-height: calc(100vh - calc(101px * var(--stage-scale, 1)));
   text-align: center;
 }
 
@@ -30,6 +30,7 @@ body[data-page="about"] .site-frame {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: calc(14px * var(--stage-scale, 1));
   color: #111;
   font-size: calc(14px * var(--stage-scale, 1));
@@ -49,6 +50,7 @@ body[data-page="about"] .site-frame {
 }
 
 .about-project-list {
+  display: none;
   width: 100%;
 }
 

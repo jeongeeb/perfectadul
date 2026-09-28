@@ -75,7 +75,7 @@ body[data-page="manual"] .footer-handle {
 
 .manual-intro-brand-copy {
   margin-top: calc(14px * var(--stage-scale, 1));
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Arial Narrow", Arial, sans-serif;
   font-size: calc(14px * var(--stage-scale, 1));
   font-weight: 500;
   line-height: calc(18px * var(--stage-scale, 1));
@@ -96,7 +96,7 @@ body[data-page="manual"] .footer-handle {
 
 .manual-language {
   margin: 0 0 calc(24px * var(--stage-scale, 1));
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Arial Narrow", Arial, sans-serif;
   font-size: calc(14px * var(--stage-scale, 1));
   font-weight: 600;
   line-height: 1;
@@ -242,7 +242,7 @@ body[data-page="manual"] .footer-handle {
 
 .manual-kicker {
   margin: 0 0 calc(14px * var(--stage-scale, 1));
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Arial Narrow", Arial, sans-serif;
   font-size: calc(13px * var(--stage-scale, 1));
   font-weight: 500;
   line-height: 1.1;
@@ -376,7 +376,7 @@ body[data-page="manual"] .footer-handle {
 
 .manual-language-section[lang="en"] .manual-rail h2,
 .manual-language-section[lang="en"] .manual-chapter-copy {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Arial Narrow", Arial, sans-serif;
 }
 
 @media (max-width: 980px) {

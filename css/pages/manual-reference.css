@@ -74,7 +74,7 @@ body[data-page="manual"] .footer-handle {
   z-index: 12;
   width: calc(210px * var(--stage-scale, 1));
   color: #4b4b4b;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Arial Narrow", Arial, sans-serif;
   font-size: calc(16px * var(--stage-scale, 1));
   font-weight: 600;
   line-height: 1.04;
@@ -165,7 +165,7 @@ body[data-page="manual"] .footer-handle {
 .manual-intro > h2 {
   margin: 0;
   padding-right: calc(28px * var(--stage-scale, 1));
-  font-family: "Helvetica Neue", Helvetica, var(--kr-font);
+  font-family: "Arial Narrow", var(--kr-font);
   /* 왼쪽의 큰 장 제목 크기와 굵기입니다. */
   font-size: calc(15px * var(--stage-scale, 1));
   font-weight: 500;
@@ -227,7 +227,7 @@ body[data-page="manual"] .footer-handle {
 
 .manual-intro-brand-copy {
   margin-top: calc(10px * var(--stage-scale, 1));
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Arial Narrow", Arial, sans-serif;
   font-size: calc(12px * var(--stage-scale, 1));
   font-weight: 400;
   /* 행간 */
@@ -333,7 +333,7 @@ body[data-page="manual"] .footer-handle {
 
 .manual-language-section[lang="en"] .manual-rail h2,
 .manual-language-section[lang="en"] .manual-chapter-copy {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Arial Narrow", Arial, sans-serif;
 }
 
 .manual-language-section[lang="en"] .manual-rail h2 {

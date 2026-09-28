@@ -447,7 +447,7 @@ const homeIntro = {
   ],
   heroFrontImage: "assets/graphics/16_gray_front.png",
   heroBackImage: "assets/graphics/16_gray_back.png",
-  heroFrontColorImage: "assets/graphics/16_color_front.png",
-  heroBackColorImage: "assets/graphics/16_color_back.png",
+  heroFrontColorImage: "assets/graphics/16_color_front_aligned.png",
+  heroBackColorImage: "assets/graphics/16_color_back_aligned.png",
   peopleImage: "assets/basic person/all_person.png",
 };

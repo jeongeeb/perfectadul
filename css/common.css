@@ -236,7 +236,7 @@ textarea,
   height: auto;
 }
 
-/* 하단 프로젝트 정보: Helvetica Neue / 14px / 행간 18px / 자간 -2% */
+/* 하단 프로젝트 정보: Arial Narrow / 14px / 행간 18px / 자간 -2% */
 .site-end-copy {
   margin-top: calc(30px * var(--stage-scale, 1));
   font-family: var(--en-font);
