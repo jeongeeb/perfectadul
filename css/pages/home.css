@@ -4,8 +4,11 @@
   - 첫 화면 높이/위치/세 칸 구성: .home-intro
   - 영문 글꼴: .intro-copy-english
   - 한글 글꼴: .intro-copy-korean
-  - 중앙 인물 크기와 위치: .intro-hero-pair
-  - 앞/뒤 인물 호버 전환: .intro-hero-person-front, .intro-hero-person-back
+  - 중앙 인물 전체 크기와 위치: .intro-hero-figure, .intro-hero-image-pair
+  - 앞 흑백 이미지: .intro-hero-image-front-gray
+  - 앞 컬러 이미지: .intro-hero-image-front-color
+  - 뒤 흑백 이미지: .intro-hero-image-back-gray
+  - 뒤 컬러 이미지: .intro-hero-image-back-color
   - 두 번째 인물 각도 이미지: .people-section, .people-image
   - 제품 목록 위치와 간격: .shop-grid
 */
@@ -116,9 +119,36 @@ body[data-page="shop"] .footer-handle {
   object-fit: fill;
 }
 
+/* 인물 이미지 개별 위치/크기 조정
+   translate(X, Y): 위치입니다. 예) translate(10px, -20px)
+   scale(1): 크기입니다. 예) scale(1.05)는 5% 크게, scale(0.95)는 5% 작게
+*/
+
+/* 앞모습 흑백 이미지 위치/크기 */
+.intro-hero-image-front-gray {
+  transform: translate(0, 0) scale(1);
+}
+
+/* 앞모습 컬러 이미지 위치/크기 */
+.intro-hero-image-front-color {
+  transform: translate(0, 0) scale(1);
+}
+
+/* 뒷모습 흑백 이미지 위치/크기 */
+.intro-hero-image-back-gray {
+  transform: translate(0, 0) scale(1);
+}
+
+/* 뒷모습 컬러 이미지 위치/크기 */
+.intro-hero-image-back-color {
+  transform: translate(0, 0) scale(1);
+}
+
 .intro-hero-image-color {
   opacity: 0;
-  transition: opacity 180ms ease;
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease;
 }
 
 @media (hover: hover) {
@@ -133,12 +163,12 @@ body[data-page="shop"] .footer-handle {
   width: min(calc(1760px * var(--stage-scale, 1)), 100%);
   color: #6d6d6d;
 }
-
+/* 소개글 */
 /* 영문 폰트: 20px / 행간 28px / 자간 -3% */
 .intro-copy-english {
   font-family: var(--en-font);
-  font-size: calc(20px * var(--stage-scale, 1));
-  line-height: calc(26px * var(--stage-scale, 1));
+  font-size: calc(18px * var(--stage-scale, 1));
+  line-height: calc(25px * var(--stage-scale, 1));
   letter-spacing: -0.04em;
   text-align: center;
 }
@@ -147,8 +177,8 @@ body[data-page="shop"] .footer-handle {
 .intro-copy-korean {
   margin-top: calc(32px * var(--stage-scale, 1));
   font-family: var(--kr-font);
-  font-size: calc(18px * var(--stage-scale, 1));
-  line-height: calc(28px * var(--stage-scale, 1));
+  font-size: calc(16px * var(--stage-scale, 1));
+  line-height: calc(26px * var(--stage-scale, 1));
   letter-spacing: -0.02em;
   text-align: center;
   word-break: keep-all;

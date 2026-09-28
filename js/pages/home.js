@@ -32,12 +32,12 @@ function renderShop() {
       <section class="home-intro" id="brand-intro" aria-label="Brand introduction">
         <figure class="intro-hero-figure">
           <span class="intro-hero-image-pair intro-hero-image-pair-front">
-            <img class="intro-hero-image intro-hero-image-gray" src="${versionMainImage(homeIntro.heroFrontImage)}" alt="Perfect adult collection front view">
-            <img class="intro-hero-image intro-hero-image-color" src="${versionMainImage(homeIntro.heroFrontColorImage)}" alt="" aria-hidden="true">
+            <img class="intro-hero-image intro-hero-image-gray intro-hero-image-front-gray" src="${versionMainImage(homeIntro.heroFrontImage)}" alt="Perfect adult collection front view">
+            <img class="intro-hero-image intro-hero-image-color intro-hero-image-front-color" src="${versionMainImage(homeIntro.heroFrontColorImage)}" alt="" aria-hidden="true">
           </span>
           <span class="intro-hero-image-pair intro-hero-image-pair-back">
-            <img class="intro-hero-image intro-hero-image-gray" src="${versionMainImage(homeIntro.heroBackImage)}" alt="Perfect adult collection back view">
-            <img class="intro-hero-image intro-hero-image-color" src="${versionMainImage(homeIntro.heroBackColorImage)}" alt="" aria-hidden="true">
+            <img class="intro-hero-image intro-hero-image-gray intro-hero-image-back-gray" src="${versionMainImage(homeIntro.heroBackImage)}" alt="Perfect adult collection back view">
+            <img class="intro-hero-image intro-hero-image-color intro-hero-image-back-color" src="${versionMainImage(homeIntro.heroBackColorImage)}" alt="" aria-hidden="true">
           </span>
         </figure>
         <div class="intro-copy intro-copy-english" lang="en">
