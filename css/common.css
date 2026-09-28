@@ -163,9 +163,9 @@ textarea,
 }
 
 .side-nav {
-  font-family: var(--en-font);
+  font-family: "Arial Narrow", Arial, sans-serif;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 700;
   line-height: 1;
 }
 
@@ -178,7 +178,7 @@ textarea,
   /* Shop, Manual, Archive, About 사이의 간격입니다. */
   display: flex;
   align-items: center;
-  gap: 40px;
+  gap: 20px;
 }
 
 .nav-primary-group {

@@ -331,21 +331,20 @@ body[data-page="detail"] .site-frame {
 
 /* 상세페이지 설정 */
 .detail-info-overlay {
-  /* 도장을 눌렀을 때 나타나는 제품 설명의 위치와 글자 설정입니다. */
+  /* 도장을 눌렀을 때 나타나는 강령 문구의 위치와 글자 설정입니다. */
   position: fixed;
   left: calc(30px * var(--stage-scale, 1));
-  right: 0;
-  bottom: calc(28px * var(--stage-scale, 1));
+  right: calc(30px * var(--stage-scale, 1));
+  bottom: calc(150px * var(--stage-scale, 1));
   z-index: 19;
   width: auto;
-  max-height: 52vh;
-  overflow-y: auto;
+  overflow: visible;
   color: #000000;
-  font-size: calc(35px * var(--stage-scale, 1));
-  font-weight: 900;
-  line-height: 1.3;
-  letter-spacing: 0;
-  text-transform: uppercase;
+  font-family: "SM3 Gyeonchul Myeongjo", "Noto Sans KR", serif;
+  font-size: calc(38px * var(--stage-scale, 1));
+  font-weight: 400;
+  line-height: 1.18;
+  letter-spacing: -0.04em;
   pointer-events: none;
   visibility: hidden;
   opacity: 0;
@@ -356,21 +355,26 @@ body[data-page="detail"] .site-frame {
     visibility 420ms ease;
 }
 
-.detail-info-overlay h2,
-.detail-info-overlay p {
-  margin: 0 0 calc(7px * var(--stage-scale, 1));
-}
-
-.detail-info-overlay h2 {
-  font-size: calc(58px * var(--stage-scale, 1));
-  line-height: 0.9;
-}
-
 .detail-info-overlay.is-open {
   visibility: visible;
   opacity: 1;
   transform: translateY(0);
   pointer-events: none;
+}
+
+.detail-quote-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: calc(90px * var(--stage-scale, 1));
+  align-items: start;
+}
+
+.detail-quote-grid p {
+  margin: 0;
+}
+
+.detail-quote-standard {
+  padding-left: calc(20px * var(--stage-scale, 1));
 }
 
 .detail-info-toggle.is-released,
@@ -412,6 +416,11 @@ body[data-page="detail"] .site-frame {
   font-weight: 700;
 }
 
+.detail-purchase-number {
+  font-family: "Arial Narrow", Arial, sans-serif;
+  letter-spacing: -0.04em;
+}
+
 .detail-purchase-price {
   margin-top: calc(14px * var(--stage-scale, 1)) !important;
   font-family: "Arial Narrow", Arial, sans-serif;
@@ -423,6 +432,7 @@ body[data-page="detail"] .site-frame {
 
 .detail-product-details {
   width: 100%;
+  min-height: calc(380px * var(--stage-scale, 1));
   margin-bottom: calc(80px * var(--stage-scale, 1));
 }
 
@@ -460,6 +470,7 @@ body[data-page="detail"] .site-frame {
 }
 
 .detail-description-body {
+  min-height: calc(340px * var(--stage-scale, 1));
   padding-top: calc(14px * var(--stage-scale, 1));
   color: #6f6f6f;
   font-family: var(--kr-font);
@@ -470,7 +481,9 @@ body[data-page="detail"] .site-frame {
 }
 
 .detail-description-body[hidden] {
-  display: none;
+  display: block;
+  visibility: hidden;
+  opacity: 0;
 }
 
 .detail-description-body p,

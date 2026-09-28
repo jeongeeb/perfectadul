@@ -182,6 +182,7 @@
 .product-number {
   margin: calc(20px * var(--stage-scale, 1)) 0
     calc(4px * var(--stage-scale, 1));
+  font-family: "Arial Narrow", Arial, sans-serif;
   font-size: calc(16px * var(--stage-scale, 1));
   font-weight: 900;
   line-height: 1;
@@ -202,6 +203,7 @@
 
 .product-price {
   margin: 0;
+  font-family: "Arial Narrow", Arial, sans-serif;
   font-size: calc(16px * var(--stage-scale, 1));
   line-height: 1;
 }

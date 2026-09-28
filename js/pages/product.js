@@ -30,14 +30,27 @@ function prepareDetailOpening() {
 function bindDetailInfoToggle() {
   const toggle = document.querySelector(".detail-description-toggle");
   const panel = document.querySelector(".detail-description-body");
-  if (!toggle || !panel) return;
+  if (toggle && panel) {
+    toggle.addEventListener("click", () => {
+      const isOpen = toggle.getAttribute("aria-expanded") !== "true";
+      toggle.classList.toggle("is-open", isOpen);
+      panel.classList.toggle("is-open", isOpen);
+      toggle.setAttribute("aria-expanded", isOpen.toString());
+      toggle.textContent = `${isOpen ? "-" : "+"} description`;
+      panel.hidden = !isOpen;
+      panel.setAttribute("aria-hidden", (!isOpen).toString());
+    });
+  }
 
-  toggle.addEventListener("click", () => {
-    const isOpen = toggle.getAttribute("aria-expanded") !== "true";
-    toggle.classList.toggle("is-open", isOpen);
-    panel.classList.toggle("is-open", isOpen);
-    toggle.setAttribute("aria-expanded", isOpen.toString());
-    panel.hidden = !isOpen;
+  const stampToggle = document.querySelector(".detail-info-toggle");
+  const stampPanel = document.querySelector(".detail-info-overlay");
+  if (!stampToggle || !stampPanel) return;
+
+  stampToggle.addEventListener("click", () => {
+    const isOpen = stampToggle.classList.toggle("is-open");
+    stampPanel.classList.toggle("is-open", isOpen);
+    stampToggle.setAttribute("aria-expanded", isOpen.toString());
+    stampPanel.setAttribute("aria-hidden", (!isOpen).toString());
   });
 }
 
@@ -56,9 +69,9 @@ function productDetailMarkup(product) {
     <div class="detail-product-details">
       <div class="detail-description-header">
         <p>Product details</p>
-        <button class="detail-description-toggle is-open" type="button" aria-expanded="true" aria-controls="detail-description-body">+ description</button>
+        <button class="detail-description-toggle is-open" type="button" aria-expanded="true" aria-controls="detail-description-body">- description</button>
       </div>
-      <div class="detail-description-body is-open" id="detail-description-body">
+      <div class="detail-description-body is-open" id="detail-description-body" aria-hidden="false">
         ${detailLine("대응 강령 :", product.name)}
         ${detailLine("사회표준 지침 :", detail.standard)}
         ${detailLine("수행 규약 :", detail.code)}
@@ -68,6 +81,39 @@ function productDetailMarkup(product) {
         ${features ? `<p><strong class="detail-description-label">*제품 주요 기능</strong></p><ul>${features}</ul>` : ""}
       </div>
     </div>`;
+}
+
+function productDoctrineLabel(productIndex) {
+  const labels = [
+    "제1-1강령",
+    "제1-2강령",
+    "제1-3강령",
+    "제2-1강령",
+    "제2-2강령",
+    "제2-3강령",
+    "제3-1강령",
+    "제3-2강령",
+    "제3-3강령",
+    "제4-1강령",
+    "제5-1강령",
+    "제5-2강령",
+    "제6-1강령",
+    "제6-2강령",
+    "제6-3강령",
+    "최종강령",
+  ];
+  return labels[productIndex] || `제${productIndex + 1}강령`;
+}
+
+function productQuoteMarkup(product, productIndex) {
+  const detail = product.detail || {};
+  return `
+    <section class="detail-info-overlay" id="detail-info-overlay" aria-hidden="true">
+      <div class="detail-quote-grid">
+        <p class="detail-quote-doctrine">${productDoctrineLabel(productIndex)}: ${product.name}</p>
+        <p class="detail-quote-standard">사회 표준:<br>“${detail.standard || ""}”</p>
+      </div>
+    </section>`;
 }
 
 function productDisplayName(product) {
@@ -194,8 +240,9 @@ function prepareDetailPageImage() {
   const releaseDetailControlsAt = (relatedTop) => {
     const panel = document.querySelector(".detail-panel");
     const actions = document.querySelector(".detail-actions");
-    const infoToggle = document.querySelector(".detail-description-toggle");
+    const infoToggle = document.querySelector(".detail-info-toggle");
     const infoOverlay = document.querySelector(".detail-product-details");
+    const quoteOverlay = document.querySelector(".detail-info-overlay");
     if (!actions) return;
 
     const updateControlPosition = () => {
@@ -210,6 +257,7 @@ function prepareDetailPageImage() {
       actions.classList.toggle("is-released", isReleased);
       infoToggle?.classList.toggle("is-released", isReleased);
       infoOverlay?.classList.toggle("is-released", isReleased);
+      quoteOverlay?.classList.toggle("is-released", isReleased);
 
       if (isReleased) {
         if (panel) panel.style.top = `${releaseScrollY + 146 * scale}px`;
@@ -292,6 +340,11 @@ function renderDetail() {
         <img class="detail-scroll-image" alt="${product.name} scroll detail" data-detail-candidates="${detailPageImageCandidates(product, productIndex).join("|")}">
       </section>
       ${fallbackGallery}
+      <button class="detail-info-toggle" type="button" aria-label="강령 문구 보기" aria-controls="detail-info-overlay" aria-expanded="false">
+        <img class="detail-info-stamp detail-info-stamp-red" src="assets/graphics/stamp_red.png" alt="">
+        <img class="detail-info-stamp detail-info-stamp-gray" src="assets/graphics/stamp_gray.png" alt="">
+      </button>
+      ${productQuoteMarkup(product, productIndex)}
       <div class="detail-actions">
         <div class="detail-purchase-meta">
           <p class="detail-purchase-number">${formatProductNumber(product, productIndex)}</p>
