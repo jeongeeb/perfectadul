@@ -16,7 +16,7 @@
 */
 body[data-page="manual"],
 body[data-page="manual"] .site-frame {
-  --manual-page-bg: #313131;
+  --manual-page-bg: #fff;
   background: var(--manual-page-bg);
 }
 
@@ -27,11 +27,11 @@ body[data-page="manual"] .top-bar {
 body[data-page="manual"] .menu-panel,
 body[data-page="manual"] .side-nav,
 body[data-page="manual"] .side-nav a {
-  color: #fff;
+  color: #000;
 }
 
 body[data-page="manual"] .brand-logo {
-  filter: invert(1);
+  filter: none;
 }
 
 body[data-page="manual"] .footer-handle {
@@ -51,8 +51,8 @@ body[data-page="manual"] .footer-handle {
   --manual-title-line-height: 1.16;
   --manual-title-letter-spacing: -0.018em;
   /* 메뉴얼 상단 이미지 박스 조정 */
-  --manual-hero-left-bg: #FFFF00;
-  --manual-hero-right-bg: #FFFF00;
+  --manual-hero-left-bg: #000;
+  --manual-hero-right-bg: #000;
   --manual-hero-left-padding: calc(40px * var(--stage-scale, 1));
   --manual-hero-left-position: center 50%;
   --manual-hero-right-fit: center 40%;
@@ -63,7 +63,7 @@ body[data-page="manual"] .footer-handle {
   padding: calc(120px * var(--stage-scale, 1))
     calc(200px * var(--stage-scale, 1)) calc(200px * var(--stage-scale, 1))
     calc(50px * var(--stage-scale, 1));
-  color: #FFFF00;
+  color: #000;
   background: var(--manual-page-bg);
 }
 
