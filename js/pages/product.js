@@ -110,8 +110,7 @@ function productQuoteMarkup(product, productIndex) {
   return `
     <section class="detail-info-overlay" id="detail-info-overlay" aria-hidden="true">
       <div class="detail-quote-grid">
-        <p class="detail-quote-doctrine">${productDoctrineLabel(productIndex)}: ${product.name}</p>
-        <p class="detail-quote-standard">사회 표준: “${detail.standard || ""}”</p>
+        <p class="detail-quote-standard">${detail.standard || ""}</p>
       </div>
     </section>`;
 }

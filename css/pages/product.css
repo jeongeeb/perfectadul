@@ -169,13 +169,14 @@ body[data-page="detail"] .site-frame {
 
 .detail-gallery {
   position: absolute;
-  left: 50%;
+  left: 45%;
   top: calc(145px * var(--stage-scale, 1));
   width: calc(635px * var(--stage-scale, 1));
   min-height: calc(880px * var(--stage-scale, 1));
   transform: translateX(-50%);
 }
 
+/* 상페페이지 자체크기 */
 .detail-gallery-scroll {
   min-height: calc(7572px * var(--stage-scale, 1));
 }
@@ -269,7 +270,7 @@ body[data-page="detail"] .site-frame {
   /* 도장 버튼 자체의 화면 위치와 클릭 영역입니다. */
   position: fixed;
   top: 50%;
-  left: calc(300px * var(--stage-scale, 1));
+  left: calc(200px * var(--stage-scale, 1));
   z-index: 18;
   width: calc(200px * var(--stage-scale, 1));
   height: calc(200px * var(--stage-scale, 1));
@@ -331,24 +332,30 @@ body[data-page="detail"] .site-frame {
 
 /* 상세페이지 설정 */
 .detail-info-overlay {
-  /* 도장을 눌렀을 때 나타나는 강령 문구의 위치와 글자 설정입니다. */
+  /* 도장을 눌렀을 때 나타나는 사회표준 문구입니다. 제품 클릭 시 뜨는 큰 이름과 같은 타이포입니다. */
   position: fixed;
-  left: calc(30px * var(--stage-scale, 1));
-  right: calc(30px * var(--stage-scale, 1));
-  bottom: calc(150px * var(--stage-scale, 1));
+  inset: 0;
   z-index: 19;
-  width: auto;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
   overflow: visible;
-  color: #000000;
+  padding: calc(115px * var(--stage-scale, 1))
+    calc(42px * var(--stage-scale, 1)) calc(28px * var(--stage-scale, 1));
+  color: #ffff00;
   font-family: "SM3 Gyeonchul Myeongjo", "Noto Sans KR", serif;
-  font-size: calc(38px * var(--stage-scale, 1));
-  font-weight: 400;
-  line-height: 1.18;
-  letter-spacing: -0.04em;
+  font-size: calc(450px * var(--stage-scale, 1));
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -10px;
+  text-align: center;
+  text-transform: uppercase;
+  word-break: keep-all;
   pointer-events: none;
   visibility: hidden;
   opacity: 0;
-  transform: translateY(calc(24px * var(--stage-scale, 1)));
+  transform: translateY(calc(24px * var(--stage-scale, 1))) scaleX(0.6);
+  transform-origin: center bottom;
   transition:
     opacity 420ms ease,
     transform 420ms ease,
@@ -358,23 +365,23 @@ body[data-page="detail"] .site-frame {
 .detail-info-overlay.is-open {
   visibility: visible;
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) scaleX(0.6);
   pointer-events: none;
 }
 
 .detail-quote-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: calc(90px * var(--stage-scale, 1));
-  align-items: start;
+  width: max-content;
+  max-width: none;
+  flex: 0 0 auto;
 }
 
 .detail-quote-grid p {
   margin: 0;
+  white-space: nowrap;
 }
 
 .detail-quote-standard {
-  padding-left: calc(20px * var(--stage-scale, 1));
+  padding-left: 0;
 }
 
 .detail-info-toggle.is-released,
@@ -386,8 +393,8 @@ body[data-page="detail"] .site-frame {
 .detail-actions {
   /* 강령/제품명/가격/구매 버튼을 묶은 오른쪽 영역입니다. */
   right: calc(160px * var(--stage-scale, 1));
-  top: calc(230px * var(--stage-scale, 1));
-  transform: none;
+  top: 50%;
+  transform: translateY(-50%);
   display: grid;
   grid-template-columns: 1fr;
   align-items: start;
@@ -402,7 +409,7 @@ body[data-page="detail"] .site-frame {
   color: #000;
   font-size: calc(28px * var(--stage-scale, 1));
   font-weight: 700;
-  line-height: calc(30px * var(--stage-scale, 1));
+  line-height: 1.08;
   letter-spacing: -0.03em;
   text-align: left;
 }
@@ -432,7 +439,7 @@ body[data-page="detail"] .site-frame {
 
 .detail-product-details {
   width: 100%;
-  height: calc(380px * var(--stage-scale, 1));
+  min-height: calc(380px * var(--stage-scale, 1));
   margin-bottom: calc(80px * var(--stage-scale, 1));
 }
 
@@ -466,11 +473,11 @@ body[data-page="detail"] .site-frame {
 }
 
 .detail-description-toggle.is-open {
-  color: #9a9a9a;
+  color: #000;
 }
 
 .detail-description-body {
-  height: calc(334px * var(--stage-scale, 1));
+  min-height: calc(340px * var(--stage-scale, 1));
   padding-top: calc(14px * var(--stage-scale, 1));
   color: #6f6f6f;
   font-family: var(--kr-font);
@@ -478,21 +485,12 @@ body[data-page="detail"] .site-frame {
   font-weight: 500;
   line-height: calc(20px * var(--stage-scale, 1));
   letter-spacing: -0.025em;
-  overflow-y: auto;
-  opacity: 1;
-  transform: translateY(0);
-  transition:
-    opacity 320ms ease,
-    transform 320ms ease,
-    visibility 320ms ease;
 }
 
 .detail-description-body[hidden] {
   display: block;
   visibility: hidden;
   opacity: 0;
-  transform: translateY(calc(18px * var(--stage-scale, 1)));
-  overflow: hidden;
 }
 
 .detail-description-body p,
