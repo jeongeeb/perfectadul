@@ -57,7 +57,20 @@ function renderShop() {
       </section>
     </main>`);
   prepareProductHoverImages();
+  bindIntroHeroTouch();
   bindHomeScrollLogo();
+}
+
+function bindIntroHeroTouch() {
+  document.querySelectorAll(".intro-hero-image-pair").forEach((pair) => {
+    pair.addEventListener("click", () => {
+      pair.classList.toggle("is-color-visible");
+    });
+
+    pair.addEventListener("touchstart", () => {
+      pair.classList.toggle("is-color-visible");
+    }, { passive: true });
+  });
 }
 
 function bindHomeScrollLogo() {

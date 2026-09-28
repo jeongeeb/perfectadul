@@ -16,7 +16,12 @@
 
 @font-face {
   font-family: "Arial Narrow";
-  src: local("Arial Narrow"), local("Arial Condensed"), local("Arial");
+  src:
+    local("Arial Narrow"),
+    local("ArialNarrow"),
+    local("ArialNarrowMT"),
+    local("Arial Condensed"),
+    local("Arial");
 }
 
 :root {

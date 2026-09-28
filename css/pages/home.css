@@ -170,6 +170,10 @@ body[data-page="shop"] .footer-handle {
   }
 }
 
+.intro-hero-image-pair.is-color-visible .intro-hero-image-color {
+  opacity: 1;
+}
+
 .intro-copy {
   position: relative;
   z-index: 2;
