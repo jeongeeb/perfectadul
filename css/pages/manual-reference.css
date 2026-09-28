@@ -33,13 +33,13 @@ body[data-page="manual"] .footer-handle {
   --manual-rail: calc(250px * var(--stage-scale, 1));
   --manual-sidebar: calc(270px * var(--stage-scale, 1));
   /* 모든 본문 열 사이의 가로 간격입니다. */
-  --manual-gap: calc(20px * var(--stage-scale, 1));
+  --manual-gap: calc(24px * var(--stage-scale, 1));
   /* 메뉴얼 본문 자간/행간은 여기서 바꾸면 전체에 적용됩니다. */
-  --manual-body-line-height: 1.6;
-  --manual-body-letter-spacing: -0.022em;
+  --manual-body-line-height: 1.32;
+  --manual-body-letter-spacing: -0.018em;
   /* 왼쪽 부제목 자간/행간입니다. */
-  --manual-title-line-height: 1.6;
-  --manual-title-letter-spacing: -0.02em;
+  --manual-title-line-height: 1.16;
+  --manual-title-letter-spacing: -0.018em;
   /* 메뉴얼 상단 이미지 박스 조정 */
   --manual-hero-left-bg: #fbff00;
   --manual-hero-right-bg: #373737;
@@ -186,6 +186,7 @@ body[data-page="manual"] .footer-handle {
   font-weight: 400;
   line-height: var(--manual-body-line-height);
   letter-spacing: var(--manual-body-letter-spacing);
+  text-align: left;
   word-break: keep-all;
 }
 
@@ -252,7 +253,7 @@ body[data-page="manual"] .footer-handle {
 }
 
 .manual-chapter .manual-rail {
-  margin-bottom: calc(18px * var(--stage-scale, 1));
+  margin-bottom: calc(14px * var(--stage-scale, 1));
 }
 
 .manual-chapter-copy {
@@ -277,10 +278,10 @@ body[data-page="manual"] .footer-handle {
 
 .manual-chapter-copy h4 {
   break-after: avoid-column;
-  margin: 0 0 calc(10px * var(--stage-scale, 1));
+  margin: 0 0 calc(6px * var(--stage-scale, 1));
   font-size: inherit;
   font-weight: 600;
-  line-height: inherit;
+  line-height: var(--manual-title-line-height);
   letter-spacing: inherit;
 }
 
@@ -299,7 +300,7 @@ body[data-page="manual"] .footer-handle {
 
 .manual-chapter-copy ol,
 .manual-chapter-copy ul {
-  margin: calc(6px * var(--stage-scale, 1)) 0 calc(14px * var(--stage-scale, 1));
+  margin: calc(4px * var(--stage-scale, 1)) 0 calc(10px * var(--stage-scale, 1));
   font-size: inherit;
   font-weight: inherit;
   line-height: inherit;
