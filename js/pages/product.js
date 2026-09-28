@@ -107,8 +107,9 @@ function productDoctrineLabel(productIndex) {
 
 function productQuoteMarkup(product, productIndex) {
   const detail = product.detail || {};
+  const isLongQuote = (detail.standard || "").length > 28;
   return `
-    <section class="detail-info-overlay" id="detail-info-overlay" aria-hidden="true">
+    <section class="detail-info-overlay${isLongQuote ? " is-long-quote" : ""}" id="detail-info-overlay" aria-hidden="true">
       <div class="detail-quote-grid">
         <p class="detail-quote-standard">“${detail.standard || ""}”</p>
       </div>
