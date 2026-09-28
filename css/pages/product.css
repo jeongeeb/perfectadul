@@ -381,21 +381,25 @@ body[data-page="detail"] .site-frame {
 
 .detail-actions {
   /* 강령/제품명/가격/구매 버튼을 묶은 오른쪽 영역입니다. */
-  right: 0;
+  right: calc(160px * var(--stage-scale, 1));
   top: 50%;
   transform: translateY(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: calc(642px * var(--stage-scale, 1));
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: start;
+  width: calc(500px * var(--stage-scale, 1));
+  color: #000;
+  font-family: var(--kr-font);
 }
 /* 상세페이지 제품이름 */
 .detail-purchase-meta {
-  width: calc(489px * var(--stage-scale, 1));
-  margin: 0 0 calc(24px * var(--stage-scale, 1));
+  width: 100%;
+  margin: 0 0 calc(32px * var(--stage-scale, 1));
   color: #000;
-  font-size: calc(24px * var(--stage-scale, 1));
-  line-height: 1.2;
+  font-size: calc(28px * var(--stage-scale, 1));
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
   text-align: left;
 }
 
@@ -404,29 +408,119 @@ body[data-page="detail"] .site-frame {
 }
 
 .detail-purchase-number,
-.detail-purchase-doctrine,
 .detail-purchase-name {
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .detail-purchase-price {
-  margin-top: calc(8px * var(--stage-scale, 1)) !important;
+  margin-top: calc(14px * var(--stage-scale, 1)) !important;
+  font-family: "Arial Narrow", Arial, sans-serif;
+  font-size: calc(24px * var(--stage-scale, 1));
   font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.03em;
 }
 
-.detail-actions a,
-.detail-actions button {
-  display: block;
-  width: calc(489px * var(--stage-scale, 1));
-  height: calc(31px * var(--stage-scale, 1));
-  margin-bottom: calc(6px * var(--stage-scale, 1));
-  border: 1px solid #000;
-  border-radius: 0;
-  background: #fff;
-  color: #000;
+.detail-product-details {
+  width: 100%;
+  margin-bottom: calc(80px * var(--stage-scale, 1));
+}
+
+.detail-description-header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: calc(20px * var(--stage-scale, 1));
+  width: 100%;
+  padding-bottom: calc(6px * var(--stage-scale, 1));
+  border-bottom: 1px solid #000;
+  font-family: "Arial Narrow", Arial, sans-serif;
+  font-size: calc(18px * var(--stage-scale, 1));
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.detail-description-header p {
+  margin: 0;
+}
+
+.detail-description-toggle {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #9a9a9a;
   font: inherit;
-  font-size: calc(13px * var(--stage-scale, 1));
-  line-height: calc(29px * var(--stage-scale, 1));
+  text-align: right;
+  cursor: pointer;
+}
+
+.detail-description-toggle.is-open {
+  color: #000;
+}
+
+.detail-description-body {
+  padding-top: calc(14px * var(--stage-scale, 1));
+  color: #6f6f6f;
+  font-family: var(--kr-font);
+  font-size: calc(14px * var(--stage-scale, 1));
+  font-weight: 500;
+  line-height: calc(20px * var(--stage-scale, 1));
+  letter-spacing: -0.025em;
+}
+
+.detail-description-body[hidden] {
+  display: none;
+}
+
+.detail-description-body p,
+.detail-description-body ul {
+  margin: 0 0 calc(14px * var(--stage-scale, 1));
+}
+
+.detail-description-body p:last-child,
+.detail-description-body ul:last-child {
+  margin-bottom: 0;
+}
+
+.detail-description-label,
+.detail-description-body strong {
+  font-weight: 700;
+}
+
+.detail-description-body ul {
+  padding: 0;
+  list-style: none;
+}
+
+.detail-description-body li {
+  margin: 0;
+}
+
+.detail-description-body li::before {
+  content: "-";
+}
+
+.detail-action-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: calc(16px * var(--stage-scale, 1));
+}
+
+.detail-action-buttons button {
+  display: block;
+  width: 100%;
+  height: calc(38px * var(--stage-scale, 1));
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  background: #a8a8a8;
+  color: #fff;
+  font-family: "Arial Narrow", Arial, sans-serif;
+  font-size: calc(16px * var(--stage-scale, 1));
+  font-weight: 700;
+  line-height: calc(38px * var(--stage-scale, 1));
+  letter-spacing: -0.03em;
   text-align: center;
   cursor: pointer;
 }

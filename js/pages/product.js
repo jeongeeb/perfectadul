@@ -28,16 +28,54 @@ function prepareDetailOpening() {
 }
 
 function bindDetailInfoToggle() {
-  const toggle = document.querySelector(".detail-info-toggle");
-  const panel = document.querySelector(".detail-info-overlay");
+  const toggle = document.querySelector(".detail-description-toggle");
+  const panel = document.querySelector(".detail-description-body");
   if (!toggle || !panel) return;
 
   toggle.addEventListener("click", () => {
-    const isOpen = toggle.classList.toggle("is-open");
+    const isOpen = toggle.getAttribute("aria-expanded") !== "true";
+    toggle.classList.toggle("is-open", isOpen);
     panel.classList.toggle("is-open", isOpen);
     toggle.setAttribute("aria-expanded", isOpen.toString());
-    panel.setAttribute("aria-hidden", (!isOpen).toString());
+    panel.hidden = !isOpen;
   });
+}
+
+function detailLine(label, text) {
+  if (!text) return "";
+  return `<p><strong class="detail-description-label">${label}</strong> <span>${text}</span></p>`;
+}
+
+function productDetailMarkup(product) {
+  const detail = product.detail || {};
+  const features = (detail.features || [])
+    .map((feature) => `<li>${feature}</li>`)
+    .join("");
+
+  return `
+    <div class="detail-product-details">
+      <div class="detail-description-header">
+        <p>Product details</p>
+        <button class="detail-description-toggle is-open" type="button" aria-expanded="true" aria-controls="detail-description-body">+ description</button>
+      </div>
+      <div class="detail-description-body is-open" id="detail-description-body">
+        ${detailLine("대응 강령 :", product.name)}
+        ${detailLine("사회표준 지침 :", detail.standard)}
+        ${detailLine("수행 규약 :", detail.code)}
+        ${detailLine("주의사항 :", detail.caution)}
+        ${detailLine("제품화 방향 :", detail.direction)}
+        ${detail.description ? `<p>${detail.description}</p>` : ""}
+        ${features ? `<p><strong class="detail-description-label">*제품 주요 기능</strong></p><ul>${features}</ul>` : ""}
+      </div>
+    </div>`;
+}
+
+function productDisplayName(product) {
+  return `${product.name.replace("|", "/")} / ${productTitleWithoutNumber(product.title)}`;
+}
+
+function productDisplayPrice(product) {
+  return product.price.replace(/^([\d,]+)\s*KRW$/, "KRW $1");
 }
 
 function bindPurchaseModal(product) {
@@ -156,8 +194,8 @@ function prepareDetailPageImage() {
   const releaseDetailControlsAt = (relatedTop) => {
     const panel = document.querySelector(".detail-panel");
     const actions = document.querySelector(".detail-actions");
-    const infoToggle = document.querySelector(".detail-info-toggle");
-    const infoOverlay = document.querySelector(".detail-info-overlay");
+    const infoToggle = document.querySelector(".detail-description-toggle");
+    const infoOverlay = document.querySelector(".detail-product-details");
     if (!actions) return;
 
     const updateControlPosition = () => {
@@ -222,7 +260,6 @@ function renderDetail() {
   const product =
     products.find((item) => item.id === params.get("id")) || products[0];
   const productIndex = Math.max(products.indexOf(product), 0);
-  const body = product.body.map((paragraph) => `<p>${paragraph}</p>`).join("");
   const fallbackGallery = `<section class="detail-gallery detail-fallback-gallery" aria-label="Product images">
         <div class="detail-hero"><img src="${product.image}" alt="${product.name}"></div>
         <div class="detail-closeup"><img src="${product.image}" alt="${product.name} close view"></div>
@@ -255,25 +292,17 @@ function renderDetail() {
         <img class="detail-scroll-image" alt="${product.name} scroll detail" data-detail-candidates="${detailPageImageCandidates(product, productIndex).join("|")}">
       </section>
       ${fallbackGallery}
-      <button class="detail-info-toggle" type="button" aria-label="제품 상세 설명 보기" aria-controls="detail-info-overlay" aria-expanded="false">
-        <img class="detail-info-stamp detail-info-stamp-red" src="assets/graphics/stamp_red.png" alt="">
-        <img class="detail-info-stamp detail-info-stamp-gray" src="assets/graphics/stamp_gray.png" alt="">
-      </button>
-      <section class="detail-info-overlay" id="detail-info-overlay" aria-hidden="true">
-        <h2>${product.name}</h2>
-        <p class="detail-info-title">${formatProductTitle(product, productIndex)}</p>
-        <p>${product.summary}</p>
-        ${body}
-      </section>
       <div class="detail-actions">
         <div class="detail-purchase-meta">
           <p class="detail-purchase-number">${formatProductNumber(product, productIndex)}</p>
-          <p class="detail-purchase-doctrine">${product.name}</p>
-          <p class="detail-purchase-name">${productTitleWithoutNumber(product.title)}</p>
-          <p class="detail-purchase-price">${product.price}</p>
+          <p class="detail-purchase-name">${productDisplayName(product)}</p>
+          <p class="detail-purchase-price">${productDisplayPrice(product)}</p>
         </div>
-        <button class="buy" type="button" data-purchase-action="buy">BUY NOW</button>
-        <button type="button" data-purchase-action="cart">ADD TO CART</button>
+        ${productDetailMarkup(product)}
+        <div class="detail-action-buttons">
+          <button class="buy" type="button" data-purchase-action="buy">BUY NOW</button>
+          <button type="button" data-purchase-action="cart">ADD TO CART</button>
+        </div>
       </div>
       <div class="purchase-modal" aria-hidden="true">
         <button class="purchase-backdrop" type="button" data-purchase-close aria-label="Close purchase information"></button>
