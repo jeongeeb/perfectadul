@@ -16,7 +16,7 @@
 
 @font-face {
   font-family: "Arial Narrow";
-  src: local("Arial Narrow"), local("Arial");
+  src: local("Arial Narrow"), local("Arial Condensed"), local("Arial");
 }
 
 :root {
@@ -24,6 +24,6 @@
   --ink: #050505;
   --muted: #b8b8b8;
   --page: #ffffff;
-  --en-font: "Arial Narrow", Arial, sans-serif;
+  --en-font: "Arial Narrow", "Arial Condensed", Arial, sans-serif;
   --kr-font: Pretendard, "Noto Sans KR", "Helvetica Neue", Arial, sans-serif;
 }
